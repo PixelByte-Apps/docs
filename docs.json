@@ -22,7 +22,7 @@
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://pixelbyte.app/dashboard"
+      "href": "https://dashboard.pixelbyte.app"
     }
   },
   "navigation": {
