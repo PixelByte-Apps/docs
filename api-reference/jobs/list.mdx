@@ -1,0 +1,151 @@
+---
+title: "List Jobs"
+api: "GET /v1/jobs"
+description: "List your jobs with pagination, status filtering, and model filtering."
+---
+
+## Authentication
+
+This endpoint requires an API key with the `check_status` scope.
+
+```
+Authorization: Bearer YOUR_API_KEY
+```
+
+## Query Parameters
+
+<ParamField query="limit" type="number" default="20">
+  Number of jobs to return per page. Maximum value is `100`.
+</ParamField>
+
+<ParamField query="cursor" type="string">
+  Pagination cursor from a previous response's `nextCursor` field. Use this to fetch the next page of results.
+</ParamField>
+
+<ParamField query="status" type="string">
+  Filter jobs by status. Accepted values: `pending`, `processing`, `completed`, `failed`, `cancelled`.
+</ParamField>
+
+<ParamField query="modelId" type="string">
+  Filter jobs by model slug. Example: `"google/veo-3.1-fast/text-to-video"`
+</ParamField>
+
+## Response
+
+<ResponseField name="jobs" type="array">
+  Array of job objects. Each job contains `jobId`, `status`, `progress`, `model`, `createdAt`, and `completedAt`.
+</ResponseField>
+
+<ResponseField name="nextCursor" type="string | null">
+  Cursor to use for fetching the next page. `null` if there are no more results.
+</ResponseField>
+
+<ResponseField name="hasMore" type="boolean">
+  Whether there are more results available beyond this page.
+</ResponseField>
+
+## Cursor-Based Pagination
+
+This endpoint uses cursor-based pagination for efficient and consistent traversal of results. Unlike offset-based pagination, cursor-based pagination ensures you never miss or duplicate items even if new jobs are created between requests.
+
+**How it works:**
+1. Make your first request without a `cursor` parameter.
+2. If `hasMore` is `true`, use the `nextCursor` value from the response as the `cursor` parameter in your next request.
+3. Repeat until `hasMore` is `false`.
+
+## Examples
+
+<CodeGroup>
+
+```bash cURL
+# List first page
+curl -X GET "https://api.pixelbyte.app/v1/jobs?limit=10&status=completed" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+
+# Fetch next page using cursor
+curl -X GET "https://api.pixelbyte.app/v1/jobs?limit=10&cursor=eyJjcmVhdGVkQXQiOiIyMDI2LTAyLTE4VDE1OjAwOjAwWiJ9" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+```python Python
+import requests
+
+# Fetch all completed jobs with pagination
+all_jobs = []
+cursor = None
+
+while True:
+    params = {"limit": 50, "status": "completed"}
+    if cursor:
+        params["cursor"] = cursor
+
+    response = requests.get(
+        "https://api.pixelbyte.app/v1/jobs",
+        headers={"Authorization": "Bearer YOUR_API_KEY"},
+        params=params
+    )
+
+    data = response.json()
+    all_jobs.extend(data["jobs"])
+
+    if not data["hasMore"]:
+        break
+    cursor = data["nextCursor"]
+
+print(f"Total completed jobs: {len(all_jobs)}")
+```
+
+```javascript JavaScript
+// Fetch all completed jobs with pagination
+const allJobs = [];
+let cursor = null;
+
+do {
+  const params = new URLSearchParams({ limit: "50", status: "completed" });
+  if (cursor) params.set("cursor", cursor);
+
+  const response = await fetch(
+    `https://api.pixelbyte.app/v1/jobs?${params}`,
+    {
+      headers: {
+        "Authorization": "Bearer YOUR_API_KEY"
+      }
+    }
+  );
+
+  const data = await response.json();
+  allJobs.push(...data.jobs);
+  cursor = data.hasMore ? data.nextCursor : null;
+} while (cursor);
+
+console.log(`Total completed jobs: ${allJobs.length}`);
+```
+
+</CodeGroup>
+
+### Example Response
+
+```json
+{
+  "jobs": [
+    {
+      "jobId": "job_abc123def456",
+      "status": "completed",
+      "progress": 100,
+      "model": "google/veo-3.1-fast/text-to-video",
+      "createdAt": "2026-02-18T15:00:00Z",
+      "completedAt": "2026-02-18T15:02:30Z"
+    },
+    {
+      "jobId": "job_xyz789ghi012",
+      "status": "completed",
+      "progress": 100,
+      "model": "stability/stable-diffusion-xl/text-to-image",
+      "createdAt": "2026-02-18T14:30:00Z",
+      "completedAt": "2026-02-18T14:30:15Z"
+    }
+  ],
+  "nextCursor": "eyJjcmVhdGVkQXQiOiIyMDI2LTAyLTE4VDE0OjMwOjAwWiJ9",
+  "hasMore": true
+}
+```

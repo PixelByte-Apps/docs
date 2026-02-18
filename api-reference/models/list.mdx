@@ -1,0 +1,86 @@
+---
+title: "List Models"
+api: "GET /v1/models"
+description: "Retrieve a list of all available AI models. Results are cached for 5 minutes."
+---
+
+## Authentication
+
+Requires an API key with `list_models` scope.
+
+<ParamField header="x-api-key" type="string" required>
+  Your API key with `list_models` scope.
+</ParamField>
+
+## Response
+
+<ResponseField name="models" type="array">
+  List of available models.
+  <Expandable title="Model Object">
+    <ResponseField name="id" type="string">Unique model identifier.</ResponseField>
+    <ResponseField name="providerId" type="string">ID of the provider that offers this model.</ResponseField>
+    <ResponseField name="providerName" type="string">Display name of the provider.</ResponseField>
+    <ResponseField name="name" type="string">Display name of the model.</ResponseField>
+    <ResponseField name="description" type="string">Brief description of what the model does.</ResponseField>
+    <ResponseField name="category" type="string">Model category (e.g., `video`, `image`).</ResponseField>
+    <ResponseField name="currentVersion" type="string">Currently active version identifier.</ResponseField>
+    <ResponseField name="versionCount" type="number">Total number of versions available.</ResponseField>
+    <ResponseField name="currentVersionPricing" type="object">
+      Pricing details for the current version.
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<RequestExample>
+```bash cURL
+curl -X GET https://api.pixelbyte.app/v1/models \
+  -H "x-api-key: YOUR_API_KEY"
+```
+
+```python Python
+import requests
+
+response = requests.get(
+    "https://api.pixelbyte.app/v1/models",
+    headers={"x-api-key": "YOUR_API_KEY"}
+)
+
+data = response.json()
+for model in data["models"]:
+    print(f"{model['name']} ({model['category']})")
+```
+
+```javascript JavaScript
+const response = await fetch("https://api.pixelbyte.app/v1/models", {
+  headers: { "x-api-key": "YOUR_API_KEY" }
+});
+
+const data = await response.json();
+data.models.forEach(model => {
+  console.log(`${model.name} (${model.category})`);
+});
+```
+</RequestExample>
+
+<ResponseExample>
+```json 200
+{
+  "models": [
+    {
+      "id": "model_abc123",
+      "providerId": "google",
+      "providerName": "Google",
+      "name": "Veo 3.1 Fast",
+      "description": "High-speed video generation model",
+      "category": "video",
+      "currentVersion": "v1.0",
+      "versionCount": 2,
+      "currentVersionPricing": {
+        "baseCredits": 50,
+        "unit": "per_generation"
+      }
+    }
+  ]
+}
+```
+</ResponseExample>

@@ -1,88 +1,13 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "PixelByte API",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#18FB6F",
+    "light": "#18FB6F",
+    "dark": "#10B981"
   },
   "favicon": "/favicon.svg",
-  "navigation": {
-    "tabs": [
-      {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Getting started",
-            "pages": [
-              "index",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
-            ]
-          }
-        ]
-      }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
-  },
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"
@@ -91,32 +16,168 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@pixelbyte.app"
       }
     ],
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "href": "https://pixelbyte.app/dashboard"
+    }
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "authentication"
+            ]
+          },
+          {
+            "group": "Concepts",
+            "pages": [
+              "concepts/pricing",
+              "concepts/errors",
+              "concepts/webhooks"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "Task Management",
+            "pages": [
+              "api-reference/jobs/submit",
+              "api-reference/jobs/estimate",
+              "api-reference/jobs/get-status",
+              "api-reference/jobs/list",
+              "api-reference/jobs/cancel"
+            ]
+          },
+          {
+            "group": "Models",
+            "pages": [
+              "api-reference/models/list",
+              "api-reference/models/get"
+            ]
+          },
+          {
+            "group": "Providers",
+            "pages": [
+              "api-reference/providers/list",
+              "api-reference/providers/get-models"
+            ]
+          },
+          {
+            "group": "Catalog",
+            "pages": [
+              "api-reference/catalog/models",
+              "api-reference/catalog/model-detail",
+              "api-reference/catalog/providers",
+              "api-reference/catalog/provider-detail",
+              "api-reference/catalog/categories",
+              "api-reference/catalog/capability-groups"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Video Models",
+        "groups": [
+          {
+            "group": "Google",
+            "pages": [
+              {
+                "group": "Veo 3.1 Fast",
+                "pages": [
+                  "models/video/google/veo-3-1-fast-text-to-video",
+                  "models/video/google/veo-3-1-fast-image-to-video",
+                  "models/video/google/veo-3-1-fast-reference-to-video"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Alibaba",
+            "pages": [
+              {
+                "group": "Wan 2.2 Super",
+                "pages": [
+                  "models/video/alibaba/wan-2-2-super"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Image Models",
+        "groups": [
+          {
+            "group": "Google",
+            "pages": [
+              {
+                "group": "Nano Banana",
+                "pages": [
+                  "models/image/google/nano-banana"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "API Reference",
+          "href": "/api-reference/jobs/submit",
+          "icon": "code"
+        },
+        {
+          "anchor": "Status",
+          "href": "https://status.pixelbyte.app",
+          "icon": "signal"
+        }
+      ]
+    }
+  },
+  "api": {
+    "baseUrl": "https://api.pixelbyte.app",
+    "mdx": {
+      "server": "https://api.pixelbyte.app",
+      "auth": {
+        "method": "bearer"
+      }
+    },
+    "playground": {
+      "display": "interactive"
+    },
+    "examples": {
+      "languages": ["curl", "python", "javascript"],
+      "defaults": "required"
     }
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "cursor"
+    ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/pixelbyte",
+      "github": "https://github.com/pixelbyte"
     }
   }
 }

@@ -1,0 +1,115 @@
+---
+title: "Get Provider Models"
+api: "GET /v1/providers/{providerId}/models"
+description: "Retrieve all models offered by a specific provider."
+---
+
+## Authentication
+
+Requires an API key with `list_models` scope.
+
+<ParamField header="x-api-key" type="string" required>
+  Your API key with `list_models` scope.
+</ParamField>
+
+## Path Parameters
+
+<ParamField path="providerId" type="string" required>
+  The unique identifier of the provider (e.g., `google`, `alibaba`).
+</ParamField>
+
+## Response
+
+<ResponseField name="provider" type="object">
+  Provider details.
+  <Expandable title="Provider Object">
+    <ResponseField name="id" type="string">Unique provider identifier.</ResponseField>
+    <ResponseField name="name" type="string">Display name of the provider.</ResponseField>
+    <ResponseField name="description" type="string">Brief description of the provider.</ResponseField>
+    <ResponseField name="logoUrl" type="string">URL to the provider's logo image.</ResponseField>
+    <ResponseField name="website" type="string">Provider's official website URL.</ResponseField>
+    <ResponseField name="color" type="string">Brand color hex code.</ResponseField>
+    <ResponseField name="categories" type="array">Model categories offered.</ResponseField>
+    <ResponseField name="isActive" type="boolean">Whether the provider is currently active.</ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="models" type="array">
+  List of models from this provider.
+  <Expandable title="Model Object">
+    <ResponseField name="id" type="string">Unique model identifier.</ResponseField>
+    <ResponseField name="name" type="string">Display name of the model.</ResponseField>
+    <ResponseField name="description" type="string">Brief description of the model.</ResponseField>
+    <ResponseField name="category" type="string">Model category.</ResponseField>
+    <ResponseField name="currentVersion" type="string">Currently active version.</ResponseField>
+    <ResponseField name="versionCount" type="number">Total number of versions.</ResponseField>
+    <ResponseField name="currentVersionPricing" type="object">Pricing for the current version.</ResponseField>
+  </Expandable>
+</ResponseField>
+
+<RequestExample>
+```bash cURL
+curl -X GET https://api.pixelbyte.app/v1/providers/google/models \
+  -H "x-api-key: YOUR_API_KEY"
+```
+
+```python Python
+import requests
+
+provider_id = "google"
+response = requests.get(
+    f"https://api.pixelbyte.app/v1/providers/{provider_id}/models",
+    headers={"x-api-key": "YOUR_API_KEY"}
+)
+
+data = response.json()
+print(f"Provider: {data['provider']['name']}")
+for model in data["models"]:
+    print(f"  - {model['name']} ({model['category']})")
+```
+
+```javascript JavaScript
+const providerId = "google";
+const response = await fetch(
+  `https://api.pixelbyte.app/v1/providers/${providerId}/models`,
+  { headers: { "x-api-key": "YOUR_API_KEY" } }
+);
+
+const data = await response.json();
+console.log(`Provider: ${data.provider.name}`);
+data.models.forEach(model => {
+  console.log(`  - ${model.name} (${model.category})`);
+});
+```
+</RequestExample>
+
+<ResponseExample>
+```json 200
+{
+  "provider": {
+    "id": "google",
+    "name": "Google",
+    "description": "Google's AI video and image generation models",
+    "logoUrl": "https://cdn.pixelbyte.app/providers/google.png",
+    "website": "https://ai.google",
+    "color": "#4285F4",
+    "categories": ["video", "image"],
+    "isActive": true
+  },
+  "models": [
+    {
+      "id": "model_abc123",
+      "name": "Veo 3.1 Fast",
+      "description": "High-speed video generation model",
+      "category": "video",
+      "currentVersion": "v1.0",
+      "versionCount": 2,
+      "currentVersionPricing": {
+        "baseCredits": 50,
+        "unit": "per_generation"
+      }
+    }
+  ]
+}
+```
+</ResponseExample>

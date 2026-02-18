@@ -1,0 +1,173 @@
+---
+title: "Authentication"
+description: "Secure your API requests with API keys"
+---
+
+# Authentication
+
+All PixelByte API requests require authentication via an API key sent in the `Authorization` header.
+
+## Making Authenticated Requests
+
+Include your API key as a Bearer token in the `Authorization` header:
+
+<CodeGroup>
+
+```bash cURL
+curl https://api.pixelbyte.app/v1/jobs \
+  -H "Authorization: Bearer pb_your_api_key_here"
+```
+
+```python Python
+import requests
+
+headers = {
+    "Authorization": "Bearer pb_your_api_key_here"
+}
+
+response = requests.get(
+    "https://api.pixelbyte.app/v1/jobs",
+    headers=headers
+)
+```
+
+```javascript JavaScript
+const response = await fetch("https://api.pixelbyte.app/v1/jobs", {
+  headers: {
+    "Authorization": "Bearer pb_your_api_key_here"
+  }
+});
+```
+
+</CodeGroup>
+
+## Creating API Keys
+
+1. Sign in to the [PixelByte Dashboard](https://dashboard.pixelbyte.app)
+2. Navigate to **Settings** > **API Keys**
+3. Click **Create New Key**
+4. Configure scopes and IP restrictions (optional)
+5. Copy your key immediately
+
+<Warning>
+API keys are displayed only once at creation time. Store your key securely — you won't be able to view it again.
+</Warning>
+
+## API Key Scopes
+
+Scopes restrict what operations an API key can perform. When creating a key, you can assign one or more scopes:
+
+| Scope | Description |
+|-------|-------------|
+| `submit_job` | Submit new AI generation jobs |
+| `check_status` | Check job status and retrieve results |
+| `list_models` | List available models and their pricing |
+
+<Info>
+An empty scopes array (`[]`) means the key has **full access** to all operations. To follow the principle of least privilege, assign only the scopes your application needs.
+</Info>
+
+### Scope Examples
+
+**Full access key** (empty array):
+```json
+{
+  "name": "Production Key",
+  "scopes": []
+}
+```
+
+**Read-only key** (status checking only):
+```json
+{
+  "name": "Monitoring Key",
+  "scopes": ["check_status", "list_models"]
+}
+```
+
+**Job submission key** (submit and check):
+```json
+{
+  "name": "Worker Key",
+  "scopes": ["submit_job", "check_status"]
+}
+```
+
+## IP Whitelisting
+
+Restrict API key usage to specific IP addresses for added security.
+
+When creating or updating a key, provide a list of allowed IPs:
+
+```json
+{
+  "name": "Production Key",
+  "scopes": [],
+  "allowedIPs": ["203.0.113.10", "198.51.100.0/24"]
+}
+```
+
+<Tip>
+IP whitelisting supports both individual addresses and CIDR notation for IP ranges.
+</Tip>
+
+Requests from non-whitelisted IPs will receive a `403 IP_NOT_WHITELISTED` error.
+
+## Key Rotation
+
+Rotate your API keys periodically to minimize the impact of key exposure.
+
+**Recommended rotation workflow:**
+
+1. Create a new API key with the same scopes
+2. Update your application to use the new key
+3. Verify the new key works in production
+4. Deactivate the old key from the dashboard
+
+<Note>
+PixelByte supports multiple active keys simultaneously, allowing zero-downtime rotation.
+</Note>
+
+## Error Codes
+
+Authentication and authorization errors return the following codes:
+
+| HTTP Status | Error Code | Description |
+|-------------|------------|-------------|
+| 401 | `UNAUTHORIZED` | No API key provided in the request |
+| 401 | `INVALID_API_KEY` | The API key does not exist or is malformed |
+| 401 | `API_KEY_INACTIVE` | The API key has been deactivated |
+| 401 | `API_KEY_EXPIRED` | The API key has passed its expiration date |
+| 403 | `IP_NOT_WHITELISTED` | Request IP is not in the key's allowed IP list |
+| 403 | `OPERATION_NOT_ALLOWED` | The API key lacks the required scope for this operation |
+
+### Error Response Example
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "UNAUTHORIZED",
+    "message": "Missing or invalid Authorization header. Provide a valid API key as a Bearer token.",
+    "details": {}
+  },
+  "requestId": "req_abc123"
+}
+```
+
+## Security Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Use Environment Variables" icon="lock">
+    Never hardcode API keys in source code. Use environment variables or a secrets manager.
+  </Card>
+  <Card title="Limit Scopes" icon="shield">
+    Assign only the scopes each key needs. Avoid full-access keys when possible.
+  </Card>
+  <Card title="Enable IP Whitelisting" icon="globe">
+    Restrict keys to known server IPs in production environments.
+  </Card>
+  <Card title="Rotate Regularly" icon="rotate">
+    Rotate keys on a regular schedule and immediately if a key may have been exposed.
+  </Card>
+</CardGroup>

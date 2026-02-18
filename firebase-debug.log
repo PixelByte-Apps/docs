@@ -1,0 +1,774 @@
+[debug] [2026-02-18T15:07:00.443Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:07:00.444Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:07:00.444Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:07:00.444Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:07:00.445Z] Checked if tokens are valid: false, expires at: 1771413858524
+[debug] [2026-02-18T15:07:00.445Z] Checked if tokens are valid: false, expires at: 1771413858524
+[debug] [2026-02-18T15:07:00.445Z] > refreshing access token with scopes: []
+[debug] [2026-02-18T15:07:00.445Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-02-18T15:07:00.446Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-18T15:07:00.446Z] Checked if tokens are valid: false, expires at: 1771413858524
+[debug] [2026-02-18T15:07:00.446Z] Checked if tokens are valid: false, expires at: 1771413858524
+[debug] [2026-02-18T15:07:00.446Z] > refreshing access token with scopes: []
+[debug] [2026-02-18T15:07:00.447Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-02-18T15:07:00.447Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-18T15:07:00.447Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:07:00.447Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:07:00.447Z] Checked if tokens are valid: false, expires at: 1771413858524
+[debug] [2026-02-18T15:07:00.447Z] Checked if tokens are valid: false, expires at: 1771413858524
+[debug] [2026-02-18T15:07:00.447Z] > refreshing access token with scopes: []
+[debug] [2026-02-18T15:07:00.447Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-02-18T15:07:00.447Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-18T15:07:00.653Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-02-18T15:07:00.653Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-18T15:07:00.674Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:07:00.676Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-02-18T15:07:00.676Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-18T15:07:00.693Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:07:00.694Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-02-18T15:07:00.694Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-18T15:07:00.705Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:07:01.101Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:07:01.101Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:07:01.104Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:01.104Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:01.109Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:01.109Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:01.109Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:01.109Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:01.109Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-02-18T15:07:01.109Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:01.110Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-02-18T15:07:01.110Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:01.110Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [none]
+[debug] [2026-02-18T15:07:01.110Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:01.115Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:07:01.115Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:07:01.115Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:01.115Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:01.117Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:01.117Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:01.117Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:01.117Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:01.117Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-02-18T15:07:01.117Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:01.117Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-02-18T15:07:01.117Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:01.118Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [none]
+[debug] [2026-02-18T15:07:01.118Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:01.557Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:07:01.557Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:07:01.557Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:01.557Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:01.558Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:01.558Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:01.558Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:01.558Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:01.558Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-02-18T15:07:01.558Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:01.559Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-02-18T15:07:01.559Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:01.559Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [none]
+[debug] [2026-02-18T15:07:01.559Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:02.185Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com 403
+[debug] [2026-02-18T15:07:02.185Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [omitted]
+[debug] [2026-02-18T15:07:02.198Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com 403
+[debug] [2026-02-18T15:07:02.199Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [omitted]
+[debug] [2026-02-18T15:07:02.369Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-02-18T15:07:02.369Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-02-18T15:07:02.369Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-02-18T15:07:02.369Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-02-18T15:07:02.371Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-02-18T15:07:02.371Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-02-18T15:07:02.374Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-02-18T15:07:02.374Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-02-18T15:07:02.448Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:07:02.448Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:07:02.448Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:02.448Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:02.448Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:07:02.515Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com 403
+[debug] [2026-02-18T15:07:02.515Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [omitted]
+[debug] [2026-02-18T15:07:02.621Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-02-18T15:07:02.622Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-02-18T15:07:02.623Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-02-18T15:07:02.623Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-02-18T15:07:02.696Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:07:02.696Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:07:02.696Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:02.696Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:02.696Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:07:03.132Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:07:03.132Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:07:03.132Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:07:03.132Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:07:03.367Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:07:03.368Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:07:03.368Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:07:03.368Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:07:16.231Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:07:16.233Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:07:16.233Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:07:16.233Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:07:16.233Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:16.233Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:16.233Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:16.233Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:16.234Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:07:16.234Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:07:16.234Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:16.234Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:16.234Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:07:16.235Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:07:16.235Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:07:16.644Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:07:16.644Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:07:16.647Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:16.647Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:16.653Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:16.653Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:16.653Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:16.653Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:16.653Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-02-18T15:07:16.653Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:16.653Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-02-18T15:07:16.653Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:16.654Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [none]
+[debug] [2026-02-18T15:07:16.654Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:16.689Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:07:16.689Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:07:16.690Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:16.690Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:16.691Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:16.691Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:16.692Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:16.692Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:16.692Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-02-18T15:07:16.692Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:16.692Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-02-18T15:07:16.692Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:16.693Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [none]
+[debug] [2026-02-18T15:07:16.693Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:17.020Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:07:17.020Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:07:17.021Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:17.021Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:17.025Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:17.025Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:17.025Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:17.025Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:17.025Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-02-18T15:07:17.025Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:17.026Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-02-18T15:07:17.026Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:17.026Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [none]
+[debug] [2026-02-18T15:07:17.026Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:17.594Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com 403
+[debug] [2026-02-18T15:07:17.594Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [omitted]
+[debug] [2026-02-18T15:07:17.631Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com 403
+[debug] [2026-02-18T15:07:17.632Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [omitted]
+[debug] [2026-02-18T15:07:17.701Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-02-18T15:07:17.702Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-02-18T15:07:17.715Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-02-18T15:07:17.715Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-02-18T15:07:17.727Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-02-18T15:07:17.727Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-02-18T15:07:17.803Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-02-18T15:07:17.803Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-02-18T15:07:17.868Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:07:17.869Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:07:17.869Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:17.869Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:17.869Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:07:18.001Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com 403
+[debug] [2026-02-18T15:07:18.001Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [omitted]
+[debug] [2026-02-18T15:07:18.116Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-02-18T15:07:18.116Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-02-18T15:07:18.124Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-02-18T15:07:18.124Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-02-18T15:07:18.164Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:07:18.165Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:07:18.166Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:07:18.166Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:07:18.185Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:07:18.185Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:07:18.185Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:18.185Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:18.185Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:07:18.486Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:07:18.486Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:07:18.487Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:07:18.487Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:07:30.463Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:07:30.465Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:07:30.465Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:07:30.465Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:07:30.465Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:30.465Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:30.465Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:30.465Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:30.465Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:07:30.465Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:07:30.465Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:30.465Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:30.466Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:07:30.466Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:07:30.467Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:07:30.894Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:07:30.895Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:07:30.897Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:30.897Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:30.902Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:30.902Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:30.902Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:30.902Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:30.902Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-02-18T15:07:30.902Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:30.902Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-02-18T15:07:30.902Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:30.903Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [none]
+[debug] [2026-02-18T15:07:30.903Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:31.229Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:07:31.229Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:07:31.230Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:31.230Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:31.231Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:31.231Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:31.231Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:31.231Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:31.231Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-02-18T15:07:31.231Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:31.232Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-02-18T15:07:31.232Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:31.233Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [none]
+[debug] [2026-02-18T15:07:31.233Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:31.273Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:07:31.273Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:07:31.274Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:31.274Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:31.275Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:31.275Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:31.275Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:31.275Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:31.275Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-02-18T15:07:31.275Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:31.275Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-02-18T15:07:31.275Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:31.276Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [none]
+[debug] [2026-02-18T15:07:31.276Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:31.788Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-02-18T15:07:31.788Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-02-18T15:07:31.872Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com 403
+[debug] [2026-02-18T15:07:31.872Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [omitted]
+[debug] [2026-02-18T15:07:31.930Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-02-18T15:07:31.930Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-02-18T15:07:31.983Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-02-18T15:07:31.983Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-02-18T15:07:32.168Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com 403
+[debug] [2026-02-18T15:07:32.168Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [omitted]
+[debug] [2026-02-18T15:07:32.174Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com 403
+[debug] [2026-02-18T15:07:32.174Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [omitted]
+[debug] [2026-02-18T15:07:32.299Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-02-18T15:07:32.300Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-02-18T15:07:32.314Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-02-18T15:07:32.314Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-02-18T15:07:32.328Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-02-18T15:07:32.328Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-02-18T15:07:32.361Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:07:32.361Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:07:32.361Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:32.361Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:32.361Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:07:32.388Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:07:32.388Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:07:32.388Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:32.388Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:32.388Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:07:32.579Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:07:32.579Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:07:32.580Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:07:32.580Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:07:32.687Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:07:32.687Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:07:32.688Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:07:32.688Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:07:45.222Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:07:45.224Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:07:45.224Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:07:45.224Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:07:45.224Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:45.224Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:45.224Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:45.224Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:45.224Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:07:45.224Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:07:45.224Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:45.225Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:45.225Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:07:45.225Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:07:45.226Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:07:45.623Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:07:45.623Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:07:45.626Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:45.626Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:45.631Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:45.631Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:45.631Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:45.631Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:45.631Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-02-18T15:07:45.631Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:45.631Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-02-18T15:07:45.631Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:45.632Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [none]
+[debug] [2026-02-18T15:07:45.632Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:45.637Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:07:45.637Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:07:45.638Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:45.638Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:45.639Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:45.639Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:45.640Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:45.640Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:45.640Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-02-18T15:07:45.640Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:45.640Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-02-18T15:07:45.640Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:45.641Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [none]
+[debug] [2026-02-18T15:07:45.641Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:45.988Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:07:45.988Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:07:45.988Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:45.988Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:45.989Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:45.989Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:45.989Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:45.989Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:45.989Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-02-18T15:07:45.989Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:45.990Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-02-18T15:07:45.990Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:45.991Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [none]
+[debug] [2026-02-18T15:07:45.991Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:07:46.532Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com 403
+[debug] [2026-02-18T15:07:46.532Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [omitted]
+[debug] [2026-02-18T15:07:46.603Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com 403
+[debug] [2026-02-18T15:07:46.603Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [omitted]
+[debug] [2026-02-18T15:07:46.671Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-02-18T15:07:46.671Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-02-18T15:07:46.672Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-02-18T15:07:46.672Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-02-18T15:07:46.716Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-02-18T15:07:46.716Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-02-18T15:07:46.716Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-02-18T15:07:46.716Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-02-18T15:07:46.776Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:07:46.776Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:07:46.776Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:46.776Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:46.776Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:07:46.946Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com 403
+[debug] [2026-02-18T15:07:46.946Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [omitted]
+[debug] [2026-02-18T15:07:46.986Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:07:46.986Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:07:46.987Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:07:46.987Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:07:47.073Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-02-18T15:07:47.073Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-02-18T15:07:47.080Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-02-18T15:07:47.080Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-02-18T15:07:47.139Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:07:47.139Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:07:47.139Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:47.139Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:07:47.139Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:07:47.444Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:07:47.444Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:07:47.445Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:07:47.446Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:08:01.355Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:08:01.356Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:08:01.356Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:08:01.356Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:08:01.356Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:08:01.357Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:08:01.357Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:08:01.357Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:08:01.357Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:08:01.357Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:08:01.357Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:08:01.357Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:08:01.358Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:08:01.358Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:08:01.359Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:08:01.673Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:08:01.673Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:08:01.677Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:08:01.677Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:08:01.683Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:08:01.683Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:08:01.683Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:08:01.683Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:08:01.683Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-02-18T15:08:01.684Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:08:01.684Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-02-18T15:08:01.684Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:08:01.684Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [none]
+[debug] [2026-02-18T15:08:01.684Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:08:01.693Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:08:01.693Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:08:01.694Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:08:01.694Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:08:01.696Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:08:01.696Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:08:01.696Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:08:01.696Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:08:01.696Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-02-18T15:08:01.696Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:08:01.697Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-02-18T15:08:01.697Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:08:01.698Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [none]
+[debug] [2026-02-18T15:08:01.699Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:08:02.124Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:08:02.124Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:08:02.125Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:08:02.125Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:08:02.126Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:08:02.126Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:08:02.126Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:08:02.126Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:08:02.126Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-02-18T15:08:02.126Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:08:02.127Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-02-18T15:08:02.127Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:08:02.127Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [none]
+[debug] [2026-02-18T15:08:02.127Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:08:02.636Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com 403
+[debug] [2026-02-18T15:08:02.636Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [omitted]
+[debug] [2026-02-18T15:08:02.643Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com 403
+[debug] [2026-02-18T15:08:02.643Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [omitted]
+[debug] [2026-02-18T15:08:02.799Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-02-18T15:08:02.799Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-02-18T15:08:02.800Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-02-18T15:08:02.800Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-02-18T15:08:02.805Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-02-18T15:08:02.805Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-02-18T15:08:02.807Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-02-18T15:08:02.807Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-02-18T15:08:02.882Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:08:02.882Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:08:02.882Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:08:02.882Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:08:02.882Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:08:03.055Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com 403
+[debug] [2026-02-18T15:08:03.056Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [omitted]
+[debug] [2026-02-18T15:08:03.171Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-02-18T15:08:03.171Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-02-18T15:08:03.214Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-02-18T15:08:03.214Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-02-18T15:08:03.295Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:08:03.295Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:08:03.295Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:08:03.295Z] Checked if tokens are valid: true, expires at: 1771430819694
+[debug] [2026-02-18T15:08:03.295Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:08:03.551Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:08:03.551Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:08:03.552Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:08:03.552Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:08:03.591Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:08:03.592Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:08:03.592Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:08:03.592Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:59:00.827Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:59:00.829Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:59:00.830Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:59:00.830Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:59:00.831Z] Checked if tokens are valid: false, expires at: 1771430819694
+[debug] [2026-02-18T15:59:00.831Z] Checked if tokens are valid: false, expires at: 1771430819694
+[debug] [2026-02-18T15:59:00.831Z] > refreshing access token with scopes: []
+[debug] [2026-02-18T15:59:00.832Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-02-18T15:59:00.832Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-18T15:59:00.833Z] Checked if tokens are valid: false, expires at: 1771430819694
+[debug] [2026-02-18T15:59:00.833Z] Checked if tokens are valid: false, expires at: 1771430819694
+[debug] [2026-02-18T15:59:00.833Z] > refreshing access token with scopes: []
+[debug] [2026-02-18T15:59:00.834Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-02-18T15:59:00.834Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-18T15:59:00.834Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:59:00.835Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:59:00.835Z] Checked if tokens are valid: false, expires at: 1771430819694
+[debug] [2026-02-18T15:59:00.835Z] Checked if tokens are valid: false, expires at: 1771430819694
+[debug] [2026-02-18T15:59:00.835Z] > refreshing access token with scopes: []
+[debug] [2026-02-18T15:59:00.836Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-02-18T15:59:00.836Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-18T15:59:01.059Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-02-18T15:59:01.059Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-18T15:59:01.074Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:59:01.075Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-02-18T15:59:01.075Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-18T15:59:01.087Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:59:01.089Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-02-18T15:59:01.089Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-02-18T15:59:01.102Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:59:01.552Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:59:01.553Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:59:01.581Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:01.581Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:01.616Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:01.616Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:01.616Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:01.616Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:01.617Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-02-18T15:59:01.617Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:59:01.619Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-02-18T15:59:01.619Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:59:01.621Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [none]
+[debug] [2026-02-18T15:59:01.621Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:59:01.634Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:59:01.634Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:59:01.635Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:01.635Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:01.639Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:01.639Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:01.639Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:01.639Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:01.639Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-02-18T15:59:01.639Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:59:01.640Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-02-18T15:59:01.640Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:59:01.640Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [none]
+[debug] [2026-02-18T15:59:01.640Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:59:02.006Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:59:02.006Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:59:02.006Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:02.006Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:02.008Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:02.008Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:02.008Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:02.008Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:02.008Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-02-18T15:59:02.008Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:59:02.009Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-02-18T15:59:02.009Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:59:02.009Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [none]
+[debug] [2026-02-18T15:59:02.009Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:59:02.641Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-02-18T15:59:02.641Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-02-18T15:59:02.689Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com 403
+[debug] [2026-02-18T15:59:02.689Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [omitted]
+[debug] [2026-02-18T15:59:02.694Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com 403
+[debug] [2026-02-18T15:59:02.694Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [omitted]
+[debug] [2026-02-18T15:59:02.821Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-02-18T15:59:02.821Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-02-18T15:59:02.842Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-02-18T15:59:02.842Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-02-18T15:59:02.849Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-02-18T15:59:02.849Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-02-18T15:59:02.852Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-02-18T15:59:02.853Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-02-18T15:59:02.928Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:59:02.928Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:59:02.928Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:02.929Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:02.929Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:59:02.947Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com 403
+[debug] [2026-02-18T15:59:02.947Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [omitted]
+[debug] [2026-02-18T15:59:03.159Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:59:03.159Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:59:03.161Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:59:03.161Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:59:03.182Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-02-18T15:59:03.182Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-02-18T15:59:03.258Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:59:03.259Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:59:03.259Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:03.259Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:03.259Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:59:03.499Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:59:03.500Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:59:03.502Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:59:03.503Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:59:07.944Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:59:07.946Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:59:07.946Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:59:07.946Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:59:07.946Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:07.946Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:07.946Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:07.946Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:07.946Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:59:07.947Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:59:07.947Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:07.947Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:07.947Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:59:07.948Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:59:07.948Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:59:08.260Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:59:08.260Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:59:08.266Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:08.267Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:08.273Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:08.273Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:08.273Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:08.273Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:08.273Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-02-18T15:59:08.273Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:59:08.273Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-02-18T15:59:08.273Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:59:08.274Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [none]
+[debug] [2026-02-18T15:59:08.274Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:59:08.295Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:59:08.295Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:59:08.295Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:08.295Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:08.298Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:08.298Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:08.298Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:08.298Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:08.298Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-02-18T15:59:08.298Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:59:08.301Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-02-18T15:59:08.301Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:59:08.302Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [none]
+[debug] [2026-02-18T15:59:08.303Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:59:08.311Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:59:08.311Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:59:08.311Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:08.311Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:08.312Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:08.312Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:08.313Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:08.313Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:08.313Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-02-18T15:59:08.313Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:59:08.313Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-02-18T15:59:08.313Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:59:08.314Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [none]
+[debug] [2026-02-18T15:59:08.314Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:59:09.212Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com 403
+[debug] [2026-02-18T15:59:09.212Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [omitted]
+[debug] [2026-02-18T15:59:09.238Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com 403
+[debug] [2026-02-18T15:59:09.238Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [omitted]
+[debug] [2026-02-18T15:59:09.241Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com 403
+[debug] [2026-02-18T15:59:09.241Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [omitted]
+[debug] [2026-02-18T15:59:09.377Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-02-18T15:59:09.377Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-02-18T15:59:09.377Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-02-18T15:59:09.377Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-02-18T15:59:09.377Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-02-18T15:59:09.377Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-02-18T15:59:09.379Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-02-18T15:59:09.379Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-02-18T15:59:09.381Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-02-18T15:59:09.381Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-02-18T15:59:09.389Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-02-18T15:59:09.389Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-02-18T15:59:09.438Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:59:09.438Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:59:09.438Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:09.438Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:09.438Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:59:09.446Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:59:09.446Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:59:09.446Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:09.446Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:09.446Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:59:09.645Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:59:09.645Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:59:09.646Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:59:09.646Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:59:09.692Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:59:09.693Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:59:09.693Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:59:09.693Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:59:13.988Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:59:13.990Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:59:13.990Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:59:13.990Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:59:13.990Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:13.990Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:13.991Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:13.991Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:13.991Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:59:13.991Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:59:13.991Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:13.991Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:13.991Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:59:13.992Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:59:13.992Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:59:14.316Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:59:14.317Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:59:14.333Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:14.334Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:14.342Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:14.343Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:14.343Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:14.343Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:14.343Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-02-18T15:59:14.343Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:59:14.344Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-02-18T15:59:14.344Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:59:14.345Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [none]
+[debug] [2026-02-18T15:59:14.345Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:59:14.374Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:59:14.375Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:59:14.389Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:14.389Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:14.446Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:14.446Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:14.447Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:14.447Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:14.447Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-02-18T15:59:14.447Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:59:14.447Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-02-18T15:59:14.447Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:59:14.448Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [none]
+[debug] [2026-02-18T15:59:14.448Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:59:14.784Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:59:14.785Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:59:14.786Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:14.786Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:14.789Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:14.789Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:14.789Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:14.789Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:14.789Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-02-18T15:59:14.789Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:59:14.790Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-02-18T15:59:14.790Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:59:14.790Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [none]
+[debug] [2026-02-18T15:59:14.790Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com  x-goog-user-project=pixelbytesaas
+[debug] [2026-02-18T15:59:15.399Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com 403
+[debug] [2026-02-18T15:59:15.399Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [omitted]
+[debug] [2026-02-18T15:59:15.447Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com 403
+[debug] [2026-02-18T15:59:15.447Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [omitted]
+[debug] [2026-02-18T15:59:15.533Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-02-18T15:59:15.533Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-02-18T15:59:15.536Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-02-18T15:59:15.536Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-02-18T15:59:15.539Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-02-18T15:59:15.539Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-02-18T15:59:15.568Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-02-18T15:59:15.568Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-02-18T15:59:15.599Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:59:15.599Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:59:15.599Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:15.599Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:15.599Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:59:15.743Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com 403
+[debug] [2026-02-18T15:59:15.743Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseio.com [omitted]
+[debug] [2026-02-18T15:59:15.811Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:59:15.811Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:59:15.812Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:59:15.812Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:59:15.970Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-02-18T15:59:15.970Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-02-18T15:59:16.112Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-02-18T15:59:16.112Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/pixelbytesaas/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-02-18T15:59:16.176Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:59:16.176Z] > authorizing via signed-in user (sfs1903@gmail.com)
+[debug] [2026-02-18T15:59:16.176Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:16.176Z] Checked if tokens are valid: true, expires at: 1771433940089
+[debug] [2026-02-18T15:59:16.176Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo [none]
+[debug] [2026-02-18T15:59:16.471Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo 200
+[debug] [2026-02-18T15:59:16.471Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/pixelbytesaas/billingInfo {"name":"projects/pixelbytesaas/billingInfo","projectId":"pixelbytesaas","billingAccountName":"billingAccounts/01BFDE-2E8DC9-FA0878","billingEnabled":true}
+[debug] [2026-02-18T15:59:16.474Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-18T15:59:16.475Z] > authorizing via signed-in user (sfs1903@gmail.com)

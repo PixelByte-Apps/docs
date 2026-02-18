@@ -1,0 +1,175 @@
+---
+title: "Get Job Status"
+api: "GET /v1/jobs/{jobId}"
+description: "Retrieve the current status and details of a specific job."
+---
+
+## Authentication
+
+This endpoint requires an API key with the `check_status` scope.
+
+```
+Authorization: Bearer YOUR_API_KEY
+```
+
+## Path Parameters
+
+<ParamField path="jobId" type="string" required>
+  The unique identifier of the job to retrieve.
+</ParamField>
+
+## Response
+
+<ResponseField name="jobId" type="string">
+  Unique identifier of the job.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Current status of the job. See status enum below.
+</ResponseField>
+
+<ResponseField name="progress" type="number">
+  Job progress as a percentage: `0` (pending), `50` (processing), `100` (completed).
+</ResponseField>
+
+<ResponseField name="output" type="string | null">
+  Direct URL string of the first output item. This is a convenience field for quick access. `null` if the job has not completed yet.
+</ResponseField>
+
+<ResponseField name="outputs" type="array | null">
+  Full array of output items with detailed metadata. `null` if the job has not completed yet. Each item contains `url`, `type`, `thumbnail`, and `posterImage` fields.
+</ResponseField>
+
+<ResponseField name="error" type="object | null">
+  Error details if the job failed. Contains `code` and `message` fields.
+</ResponseField>
+
+<ResponseField name="createdAt" type="string">
+  ISO 8601 timestamp of when the job was created.
+</ResponseField>
+
+<ResponseField name="completedAt" type="string | null">
+  ISO 8601 timestamp of when the job completed. `null` if still in progress.
+</ResponseField>
+
+## Status Enum
+
+| Status | Description |
+|--------|-------------|
+| `pending` | Job has been submitted and is waiting in the queue. |
+| `processing` | A worker has picked up the job and generation is in progress. |
+| `completed` | Job has finished successfully. Output is available. |
+| `failed` | Job encountered an error. Credits are automatically refunded. |
+| `cancelled` | Job was cancelled by the user. Credits are refunded. |
+
+## Output Type Enum
+
+| Type | Description |
+|------|-------------|
+| `video` | Generated video file. |
+| `image` | Generated image file. |
+| `audio` | Generated audio file. |
+| `text` | Generated text content. |
+
+## Examples
+
+<CodeGroup>
+
+```bash cURL
+curl -X GET https://api.pixelbyte.app/v1/jobs/job_abc123def456 \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+```python Python
+import requests
+
+response = requests.get(
+    "https://api.pixelbyte.app/v1/jobs/job_abc123def456",
+    headers={
+        "Authorization": "Bearer YOUR_API_KEY"
+    }
+)
+
+data = response.json()
+print(f"Status: {data['status']}")
+print(f"Progress: {data['progress']}%")
+
+if data["output"]:
+    print(f"Output URL: {data['output']}")
+```
+
+```javascript JavaScript
+const response = await fetch(
+  "https://api.pixelbyte.app/v1/jobs/job_abc123def456",
+  {
+    headers: {
+      "Authorization": "Bearer YOUR_API_KEY"
+    }
+  }
+);
+
+const data = await response.json();
+console.log(`Status: ${data.status}`);
+console.log(`Progress: ${data.progress}%`);
+
+if (data.output) {
+  console.log(`Output URL: ${data.output}`);
+}
+```
+
+</CodeGroup>
+
+### Example Response (Completed)
+
+```json
+{
+  "jobId": "job_abc123def456",
+  "status": "completed",
+  "progress": 100,
+  "output": "https://cdn.pixelbyte.app/outputs/job_abc123def456/output_0.mp4",
+  "outputs": [
+    {
+      "url": "https://cdn.pixelbyte.app/outputs/job_abc123def456/output_0.mp4",
+      "type": "video",
+      "thumbnail": "https://cdn.pixelbyte.app/outputs/job_abc123def456/thumb_0.jpg",
+      "posterImage": "https://cdn.pixelbyte.app/outputs/job_abc123def456/poster_0.jpg"
+    }
+  ],
+  "error": null,
+  "createdAt": "2026-02-18T15:00:00Z",
+  "completedAt": "2026-02-18T15:02:30Z"
+}
+```
+
+### Example Response (Processing)
+
+```json
+{
+  "jobId": "job_abc123def456",
+  "status": "processing",
+  "progress": 50,
+  "output": null,
+  "outputs": null,
+  "error": null,
+  "createdAt": "2026-02-18T15:00:00Z",
+  "completedAt": null
+}
+```
+
+### Example Response (Failed)
+
+```json
+{
+  "jobId": "job_abc123def456",
+  "status": "failed",
+  "progress": 0,
+  "output": null,
+  "outputs": null,
+  "error": {
+    "code": "GENERATION_FAILED",
+    "message": "The model failed to generate the requested output. Credits have been refunded."
+  },
+  "createdAt": "2026-02-18T15:00:00Z",
+  "completedAt": "2026-02-18T15:01:15Z"
+}
+```

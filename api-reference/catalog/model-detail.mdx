@@ -1,0 +1,125 @@
+---
+title: "Get Catalog Model"
+api: "GET /v1/catalog/models/{slug}"
+description: "Get detailed information about a specific catalog model by its slug, including input schema, pricing, and capability variants."
+---
+
+## Authentication
+
+<Note>
+  This is a **public endpoint**. No authentication required.
+</Note>
+
+## Path Parameters
+
+<ParamField path="slug" type="string" required>
+  The model slug. Supports two formats:
+  - `provider/model` — returns the default capability
+  - `provider/model/capability` — returns a specific capability variant
+
+  **Examples:**
+  - `google/veo-3.1-fast/text-to-video`
+  - `alibaba/wan-2.2-super/image-to-video`
+  - `google/nano-banana`
+</ParamField>
+
+## Response
+
+<ResponseField name="slug" type="string">Full model slug.</ResponseField>
+<ResponseField name="provider" type="object">Provider information.</ResponseField>
+<ResponseField name="name" type="string">Display name of the model.</ResponseField>
+<ResponseField name="description" type="string">Detailed model description.</ResponseField>
+<ResponseField name="category" type="string">Model category.</ResponseField>
+<ResponseField name="capability" type="string">Specific capability of this variant.</ResponseField>
+<ResponseField name="inputSchema" type="object">JSON Schema defining the accepted input parameters for this model.</ResponseField>
+<ResponseField name="pricing" type="object">Detailed pricing information.</ResponseField>
+<ResponseField name="siblings" type="array">
+  Other capability variants of the same model.
+  <Expandable title="Sibling Object">
+    <ResponseField name="slug" type="string">Slug of the sibling variant.</ResponseField>
+    <ResponseField name="capability" type="string">Capability of the sibling.</ResponseField>
+  </Expandable>
+</ResponseField>
+
+<RequestExample>
+```bash cURL
+# Get a specific capability variant
+curl -X GET https://api.pixelbyte.app/v1/catalog/models/google/veo-3.1-fast/text-to-video
+
+# Get default capability
+curl -X GET https://api.pixelbyte.app/v1/catalog/models/google/nano-banana
+```
+
+```python Python
+import requests
+
+slug = "google/veo-3.1-fast/text-to-video"
+response = requests.get(
+    f"https://api.pixelbyte.app/v1/catalog/models/{slug}"
+)
+
+model = response.json()
+print(f"Model: {model['name']}")
+print(f"Capability: {model['capability']}")
+print(f"Siblings: {[s['capability'] for s in model['siblings']]}")
+```
+
+```javascript JavaScript
+const slug = "google/veo-3.1-fast/text-to-video";
+const response = await fetch(
+  `https://api.pixelbyte.app/v1/catalog/models/${slug}`
+);
+
+const model = await response.json();
+console.log(`Model: ${model.name}`);
+console.log(`Capability: ${model.capability}`);
+console.log(`Siblings:`, model.siblings.map(s => s.capability));
+```
+</RequestExample>
+
+<ResponseExample>
+```json 200
+{
+  "slug": "google/veo-3.1-fast/text-to-video",
+  "provider": {
+    "id": "google",
+    "name": "Google",
+    "logoUrl": "https://cdn.pixelbyte.app/providers/google.png"
+  },
+  "name": "Veo 3.1 Fast",
+  "description": "Google's high-speed video generation model with text-to-video capability",
+  "category": "video",
+  "capability": "text-to-video",
+  "inputSchema": {
+    "type": "object",
+    "required": ["prompt"],
+    "properties": {
+      "prompt": {
+        "type": "string",
+        "description": "Text description of the video to generate"
+      },
+      "duration": {
+        "type": "number",
+        "description": "Video duration in seconds",
+        "minimum": 1,
+        "maximum": 30
+      },
+      "aspectRatio": {
+        "type": "string",
+        "enum": ["16:9", "9:16", "1:1"]
+      }
+    }
+  },
+  "pricing": {
+    "baseCredits": 50,
+    "unit": "per_generation"
+  },
+  "siblings": [
+    {
+      "slug": "google/veo-3.1-fast/image-to-video",
+      "capability": "image-to-video"
+    }
+  ]
+}
+```
+</ResponseExample>

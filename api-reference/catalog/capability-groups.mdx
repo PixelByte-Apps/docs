@@ -1,0 +1,84 @@
+---
+title: "List Capability Groups"
+api: "GET /v1/catalog/capability-groups"
+description: "Retrieve all capability groups used to classify model capabilities."
+---
+
+## Authentication
+
+<Note>
+  This is a **public endpoint**. No authentication required.
+</Note>
+
+## Response
+
+Returns an array of capability group objects.
+
+<ResponseField name="capabilityGroups" type="array">
+  <Expandable title="Capability Group Object">
+    <ResponseField name="id" type="string">Unique capability group identifier (e.g., `text-to-video`).</ResponseField>
+    <ResponseField name="displayName" type="string">Human-readable display name.</ResponseField>
+    <ResponseField name="label" type="string">Short label for UI badges and tags.</ResponseField>
+    <ResponseField name="icon" type="string">Icon identifier for UI rendering.</ResponseField>
+    <ResponseField name="color" type="string">Color hex code for UI styling.</ResponseField>
+    <ResponseField name="order" type="number">Sort order for display purposes.</ResponseField>
+  </Expandable>
+</ResponseField>
+
+<RequestExample>
+```bash cURL
+curl -X GET https://api.pixelbyte.app/v1/catalog/capability-groups
+```
+
+```python Python
+import requests
+
+response = requests.get("https://api.pixelbyte.app/v1/catalog/capability-groups")
+
+groups = response.json()
+for group in groups:
+    print(f"{group['displayName']} ({group['id']})")
+```
+
+```javascript JavaScript
+const response = await fetch(
+  "https://api.pixelbyte.app/v1/catalog/capability-groups"
+);
+
+const groups = await response.json();
+groups.forEach(group => {
+  console.log(`${group.displayName} (${group.id})`);
+});
+```
+</RequestExample>
+
+<ResponseExample>
+```json 200
+[
+  {
+    "id": "text-to-video",
+    "displayName": "Text to Video",
+    "label": "T2V",
+    "icon": "video",
+    "color": "#8B5CF6",
+    "order": 1
+  },
+  {
+    "id": "image-to-video",
+    "displayName": "Image to Video",
+    "label": "I2V",
+    "icon": "image-play",
+    "color": "#06B6D4",
+    "order": 2
+  },
+  {
+    "id": "text-to-image",
+    "displayName": "Text to Image",
+    "label": "T2I",
+    "icon": "image",
+    "color": "#F59E0B",
+    "order": 3
+  }
+]
+```
+</ResponseExample>

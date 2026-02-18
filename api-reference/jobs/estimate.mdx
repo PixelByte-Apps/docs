@@ -1,0 +1,139 @@
+---
+title: "Estimate Cost"
+api: "POST /v1/jobs/estimate"
+description: "Get a cost estimate for a job before submitting it."
+---
+
+## Authentication
+
+This endpoint requires an API key with the `check_status` scope.
+
+```
+Authorization: Bearer YOUR_API_KEY
+```
+
+## Request Body
+
+<ParamField body="model" type="string" required>
+  The model slug to estimate costs for. Example: `"google/veo-3.1-fast/text-to-video"`
+</ParamField>
+
+<ParamField body="version" type="string">
+  Optional model version. If omitted, the latest stable version is used.
+</ParamField>
+
+<ParamField body="input" type="object">
+  Optional model-specific input parameters. Some models use input parameters (e.g. resolution, duration) for dynamic pricing calculations.
+</ParamField>
+
+## Response
+
+<ResponseField name="baseCostMicroCents" type="number">
+  The base cost of the job in micro-cents before any discounts.
+</ResponseField>
+
+<ResponseField name="estimatedCostMicroCents" type="number">
+  The final estimated cost in micro-cents after applying any applicable discounts.
+</ResponseField>
+
+<ResponseField name="breakdown" type="array">
+  Detailed cost breakdown by component.
+</ResponseField>
+
+<ResponseField name="hasDiscount" type="boolean">
+  Whether a discount is applied to this estimate.
+</ResponseField>
+
+<ResponseField name="discounted" type="object">
+  Discount details when `hasDiscount` is `true`. Contains the discount type and amount.
+</ResponseField>
+
+## Examples
+
+<CodeGroup>
+
+```bash cURL
+curl -X POST https://api.pixelbyte.app/v1/jobs/estimate \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "google/veo-3.1-fast/text-to-video",
+    "input": {
+      "prompt": "A cinematic drone shot of a mountain landscape at sunset",
+      "duration": 10
+    }
+  }'
+```
+
+```python Python
+import requests
+
+response = requests.post(
+    "https://api.pixelbyte.app/v1/jobs/estimate",
+    headers={
+        "Authorization": "Bearer YOUR_API_KEY",
+        "Content-Type": "application/json"
+    },
+    json={
+        "model": "google/veo-3.1-fast/text-to-video",
+        "input": {
+            "prompt": "A cinematic drone shot of a mountain landscape at sunset",
+            "duration": 10
+        }
+    }
+)
+
+data = response.json()
+print(f"Base cost: {data['baseCostMicroCents']} micro-cents")
+print(f"Estimated cost: {data['estimatedCostMicroCents']} micro-cents")
+print(f"Has discount: {data['hasDiscount']}")
+```
+
+```javascript JavaScript
+const response = await fetch("https://api.pixelbyte.app/v1/jobs/estimate", {
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    model: "google/veo-3.1-fast/text-to-video",
+    input: {
+      prompt: "A cinematic drone shot of a mountain landscape at sunset",
+      duration: 10
+    }
+  })
+});
+
+const data = await response.json();
+console.log(`Base cost: ${data.baseCostMicroCents} micro-cents`);
+console.log(`Estimated cost: ${data.estimatedCostMicroCents} micro-cents`);
+console.log(`Has discount: ${data.hasDiscount}`);
+```
+
+</CodeGroup>
+
+### Example Response
+
+```json
+{
+  "baseCostMicroCents": 500000,
+  "estimatedCostMicroCents": 400000,
+  "breakdown": [
+    {
+      "component": "base_generation",
+      "costMicroCents": 300000
+    },
+    {
+      "component": "extended_duration",
+      "costMicroCents": 200000
+    }
+  ],
+  "hasDiscount": true,
+  "discounted": {
+    "type": "volume",
+    "percentage": 20,
+    "savedMicroCents": 100000
+  }
+}
+```

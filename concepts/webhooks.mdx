@@ -1,0 +1,304 @@
+---
+title: "Webhooks"
+description: "Receive real-time notifications when jobs complete or fail"
+---
+
+# Webhooks
+
+Webhooks allow you to receive HTTP callbacks when your jobs complete or fail, eliminating the need for polling.
+
+## Overview
+
+Instead of repeatedly polling `GET /v1/jobs/{jobId}` for status updates, you can provide a `webhookUrl` when submitting a job. PixelByte will send an HTTP POST to your URL when the job reaches a terminal state.
+
+```
+Your App → POST /v1/jobs/submit (with webhookUrl) → PixelByte
+                                                        │
+Your App ← POST webhookUrl (job result) ←──────────────┘
+```
+
+## Setting Up Webhooks
+
+Include a `webhookUrl` in your job submission request:
+
+<CodeGroup>
+```bash cURL
+curl -X POST https://api.pixelbyte.app/v1/jobs/submit \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "modelSlug": "stability/sdxl",
+    "modelVersion": "v1",
+    "input": {
+      "prompt": "A serene mountain landscape"
+    },
+    "webhookUrl": "https://your-app.com/webhooks/pixelbyte"
+  }'
+```
+
+```javascript Node.js
+const response = await fetch("https://api.pixelbyte.app/v1/jobs/submit", {
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    modelSlug: "stability/sdxl",
+    modelVersion: "v1",
+    input: {
+      prompt: "A serene mountain landscape"
+    },
+    webhookUrl: "https://your-app.com/webhooks/pixelbyte"
+  })
+});
+```
+
+```python Python
+import requests
+
+response = requests.post(
+    "https://api.pixelbyte.app/v1/jobs/submit",
+    headers={
+        "Authorization": "Bearer YOUR_API_KEY",
+        "Content-Type": "application/json"
+    },
+    json={
+        "modelSlug": "stability/sdxl",
+        "modelVersion": "v1",
+        "input": {
+            "prompt": "A serene mountain landscape"
+        },
+        "webhookUrl": "https://your-app.com/webhooks/pixelbyte"
+    }
+)
+```
+</CodeGroup>
+
+## Webhook Payload
+
+When a job completes or fails, PixelByte sends a POST request to your webhook URL with the following payload:
+
+### Success Payload
+
+```json
+{
+  "jobId": "job_abc123",
+  "requestId": "req_xyz789",
+  "status": "completed",
+  "output": {
+    "imageUrl": "https://cdn.pixelbyte.app/outputs/job_abc123.png",
+    "metadata": {
+      "width": 1024,
+      "height": 1024,
+      "format": "png"
+    }
+  },
+  "completedAt": "2026-02-18T12:00:00.000Z"
+}
+```
+
+### Failure Payload
+
+```json
+{
+  "jobId": "job_abc123",
+  "requestId": "req_xyz789",
+  "status": "failed",
+  "error": {
+    "code": "INTERNAL_ERROR",
+    "message": "Model inference failed"
+  },
+  "completedAt": "2026-02-18T12:00:05.000Z"
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `jobId` | `string` | The unique job identifier |
+| `requestId` | `string` | The original request ID |
+| `status` | `string` | `completed` or `failed` |
+| `output` | `object` | Job output (only on success) |
+| `error` | `object` | Error details (only on failure) |
+| `completedAt` | `string` | ISO 8601 timestamp |
+
+## Signature Verification
+
+Every webhook request is signed so you can verify it came from PixelByte.
+
+### Signature Headers
+
+| Header | Description |
+|--------|-------------|
+| `X-PixelByte-Timestamp` | Unix timestamp (seconds) when the webhook was sent |
+| `X-PixelByte-Signature` | HMAC-SHA256 signature in format `sha256=...` |
+
+### How Verification Works
+
+The signature is computed as:
+
+```
+HMAC-SHA256(timestamp + "." + rawPayload, webhookSecret)
+```
+
+Where:
+- `timestamp` is the value from the `X-PixelByte-Timestamp` header
+- `rawPayload` is the raw request body string
+- `webhookSecret` is your webhook secret from the dashboard
+
+### Verification Examples
+
+<CodeGroup>
+```javascript Node.js
+const crypto = require("crypto");
+
+function verifyWebhookSignature(req, webhookSecret) {
+  const timestamp = req.headers["x-pixelbyte-timestamp"];
+  const signature = req.headers["x-pixelbyte-signature"];
+
+  if (!timestamp || !signature) {
+    return false;
+  }
+
+  // Reject requests older than 5 minutes
+  const age = Math.floor(Date.now() / 1000) - parseInt(timestamp);
+  if (age > 300) {
+    return false;
+  }
+
+  const rawBody = JSON.stringify(req.body);
+  const signedPayload = `${timestamp}.${rawBody}`;
+
+  const expectedSignature = "sha256=" + crypto
+    .createHmac("sha256", webhookSecret)
+    .update(signedPayload)
+    .digest("hex");
+
+  return crypto.timingSafeEqual(
+    Buffer.from(signature),
+    Buffer.from(expectedSignature)
+  );
+}
+
+// Express.js example
+app.post("/webhooks/pixelbyte", express.json(), (req, res) => {
+  const isValid = verifyWebhookSignature(req, process.env.WEBHOOK_SECRET);
+
+  if (!isValid) {
+    return res.status(401).json({ error: "Invalid signature" });
+  }
+
+  // Respond 200 immediately
+  res.status(200).json({ received: true });
+
+  // Process asynchronously
+  processWebhook(req.body).catch(console.error);
+});
+```
+
+```python Python
+import hmac
+import hashlib
+import time
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+def verify_webhook_signature(request, webhook_secret):
+    timestamp = request.headers.get("X-PixelByte-Timestamp")
+    signature = request.headers.get("X-PixelByte-Signature")
+
+    if not timestamp or not signature:
+        return False
+
+    # Reject requests older than 5 minutes
+    age = int(time.time()) - int(timestamp)
+    if age > 300:
+        return False
+
+    raw_body = request.get_data(as_text=True)
+    signed_payload = f"{timestamp}.{raw_body}"
+
+    expected_signature = "sha256=" + hmac.new(
+        webhook_secret.encode(),
+        signed_payload.encode(),
+        hashlib.sha256
+    ).hexdigest()
+
+    return hmac.compare_digest(signature, expected_signature)
+
+
+@app.route("/webhooks/pixelbyte", methods=["POST"])
+def handle_webhook():
+    if not verify_webhook_signature(request, WEBHOOK_SECRET):
+        return jsonify({"error": "Invalid signature"}), 401
+
+    # Respond 200 immediately
+    payload = request.get_json()
+
+    # Queue for async processing
+    process_webhook_async(payload)
+
+    return jsonify({"received": True}), 200
+```
+</CodeGroup>
+
+<Warning>
+  Always use constant-time comparison (`timingSafeEqual` in Node.js, `hmac.compare_digest` in Python) to prevent timing attacks.
+</Warning>
+
+## Retry Policy
+
+If your endpoint doesn't respond with a `2xx` status code, PixelByte retries the webhook delivery using **exponential backoff**:
+
+| Attempt | Delay | Cumulative Time |
+|---------|-------|-----------------|
+| 1st retry | 1 second | 1s |
+| 2nd retry | 4 seconds | 5s |
+| 3rd retry | 16 seconds | 21s |
+| 4th retry | 64 seconds | ~1.4 min |
+| 5th retry | 256 seconds | ~5.7 min |
+
+After 5 failed attempts, the webhook is marked as `failed`.
+
+### Webhook Delivery Status
+
+| Status | Description |
+|--------|-------------|
+| `pending` | Webhook is queued for delivery |
+| `sent` | Successfully delivered (received 2xx response) |
+| `failed` | All retry attempts exhausted |
+
+## Best Practices
+
+<Steps>
+  <Step title="Respond 200 Quickly">
+    Return a `200` response immediately before doing any processing. Heavy processing should happen asynchronously to avoid timeouts.
+  </Step>
+  <Step title="Verify Signatures">
+    Always verify the `X-PixelByte-Signature` header to ensure the webhook is authentic. Never skip this step, even in development.
+  </Step>
+  <Step title="Handle Idempotency">
+    Webhooks may be delivered more than once (due to retries). Use the `jobId` to deduplicate and ensure your handler is idempotent.
+    ```javascript
+    // Store processed job IDs
+    if (await isAlreadyProcessed(payload.jobId)) {
+      return res.status(200).json({ received: true });
+    }
+    await markAsProcessed(payload.jobId);
+    ```
+  </Step>
+  <Step title="Process Asynchronously">
+    Queue webhook payloads for background processing. This ensures you respond quickly and can retry your own processing if needed.
+  </Step>
+  <Step title="Use HTTPS">
+    Always use HTTPS URLs for webhook endpoints. HTTP URLs will be rejected.
+  </Step>
+  <Step title="Monitor Delivery">
+    Track webhook delivery status in the PixelByte dashboard and set up alerts for repeated failures.
+  </Step>
+</Steps>
+
+<Note>
+  Webhook URLs must be publicly accessible and respond within **30 seconds**. If your endpoint consistently times out, webhooks will be marked as failed.
+</Note>
