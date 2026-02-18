@@ -4,7 +4,7 @@
     'veo-3-1-fast-text-to-video': 'google/veo-3.1-fast/text-to-video',
     'veo-3-1-fast-image-to-video': 'google/veo-3.1-fast/image-to-video',
     'veo-3-1-fast-reference-to-video': 'google/veo-3.1-fast/reference-to-video',
-    'wan-2-2-super': 'alibaba/wan-2.2-super/image-to-video',
+    'wan-2-2-super-image-to-video': 'alibaba/wan-2.2-super/image-to-video',
     'nano-banana': 'google/nano-banana'
   };
 
