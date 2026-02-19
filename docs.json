@@ -101,6 +101,12 @@
                   "models/video/google/veo-3-1-fast-image-to-video",
                   "models/video/google/veo-3-1-fast-reference-to-video"
                 ]
+              },
+              {
+                "group": "Veo 3.1 Quality",
+                "pages": [
+                  "models/video/google/veo-3-1-quality-text-to-video"
+                ]
               }
             ]
           },

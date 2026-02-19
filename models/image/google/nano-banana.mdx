@@ -1,7 +1,7 @@
 ---
-title: "Nano Banana — Text to Image"
+title: "Nano Banana"
 api: "POST /v1/jobs/submit"
-description: "Generate images from text prompts using Google's Nano Banana model"
+description: "Generate and edit images using Google's Nano Banana model via PixelByte API"
 ---
 
 Generate images from text descriptions with Google's fast and affordable Nano Banana model. Supports multiple aspect ratios and resolution tiers.
@@ -131,6 +131,136 @@ const response = await fetch("https://api.pixelbyte.app/v1/jobs/submit", {
       prompt: "A futuristic cityscape at sunset with flying cars",
       aspect_ratio: "16:9",
       resolution: "2k"
+    }
+  })
+});
+
+const data = await response.json();
+console.log(data);
+```
+
+</CodeGroup>
+
+---
+
+## Edit Image
+
+Edit and transform existing images using Google's Nano Banana model. Provide reference images along with a text prompt to guide the editing process.
+
+| Property | Value |
+|----------|-------|
+| **Provider** | Google |
+| **Model** | Nano Banana |
+| **Capability** | Edit Image |
+| **Category** | Image to Image |
+| **Base Cost** | 40,000 micro-cents/request ($0.04) |
+| **Processing Time** | ~30 seconds |
+
+### Request Body
+
+<ParamField body="model" type="string" required placeholder="google/nano-banana/edit-image">
+  Model slug. Use `google/nano-banana/edit-image` for image editing.
+</ParamField>
+
+<ParamField body="input" type="object" required>
+  Input parameters for image editing.
+  <Expandable title="properties" defaultOpen>
+    <ParamField body="prompt" type="string" required>
+      Text description for editing the image. Default: `walking cat`.
+    </ParamField>
+    <ParamField body="image_urls" type="array" required>
+      Reference image URLs for editing. Provide one or more image URLs to be edited.
+    </ParamField>
+    <ParamField body="aspect_ratio" type="string">
+      Output aspect ratio. Default: `9:16`. Options: `9:16`, `16:9`, `1:1`, `2:3`, `3:2`.
+    </ParamField>
+    <ParamField body="resolution" type="string">
+      Output resolution. Default: `1k`. Options: `1k`, `2k`, `4k`.
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="webhookUrl" type="string">
+  HTTPS URL to receive a webhook notification when the job completes or fails.
+</ParamField>
+
+### Pricing
+
+**Base cost:** 40,000 micro-cents per request ($0.04)
+
+```
+finalCost = baseCost × resolution
+```
+
+| Factor | Option | Multiplier |
+|--------|--------|-----------|
+| **Resolution** | `1k` | 1x |
+| | `2k` | 1x |
+| | `4k` | 2x |
+
+<Tip>
+**Default cost:** 1k resolution = 40,000 × 1 = **40,000 micro-cents ($0.04)**
+
+**4k cost:** 40,000 × 2 = **80,000 micro-cents ($0.08)**
+</Tip>
+
+### Code Examples
+
+<CodeGroup>
+
+```bash cURL
+curl -X POST https://api.pixelbyte.app/v1/jobs/submit \
+  -H "Authorization: Bearer $PIXELBYTE_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "google/nano-banana/edit-image",
+    "input": {
+      "prompt": "Edit an image by replacing the background",
+      "image_urls": ["https://example.com/your-image.jpg"],
+      "aspect_ratio": "16:9",
+      "resolution": "1k"
+    }
+  }'
+```
+
+```python Python
+import requests
+
+response = requests.post(
+    "https://api.pixelbyte.app/v1/jobs/submit",
+    headers={
+        "Authorization": "Bearer YOUR_API_KEY",
+        "Content-Type": "application/json"
+    },
+    json={
+        "model": "google/nano-banana/edit-image",
+        "input": {
+            "prompt": "Edit an image by replacing the background",
+            "image_urls": ["https://example.com/your-image.jpg"],
+            "aspect_ratio": "16:9",
+            "resolution": "1k"
+        }
+    }
+)
+
+data = response.json()
+print(data)
+```
+
+```javascript JavaScript
+const response = await fetch("https://api.pixelbyte.app/v1/jobs/submit", {
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    model: "google/nano-banana/edit-image",
+    input: {
+      prompt: "Edit an image by replacing the background",
+      image_urls: ["https://example.com/your-image.jpg"],
+      aspect_ratio: "16:9",
+      resolution: "1k"
     }
   })
 });
