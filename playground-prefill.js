@@ -4,7 +4,12 @@
     'veo-3-1-fast-text-to-video': 'google/veo-3.1-fast/text-to-video',
     'veo-3-1-fast-image-to-video': 'google/veo-3.1-fast/image-to-video',
     'veo-3-1-fast-reference-to-video': 'google/veo-3.1-fast/reference-to-video',
+    'veo-3-1-quality-text-to-video': 'google/veo-3.1-quality/text-to-video',
     'wan-2-2-super-image-to-video': 'alibaba/wan-2.2-super/image-to-video',
+    'nano-banana-pro-text-to-image': 'google/nano-banana-pro/text-to-image',
+    'nano-banana-pro-edit-image': 'google/nano-banana-pro/edit-image',
+    'nano-banana-pro': 'google/nano-banana-pro/text-to-image',
+    'nano-banana-edit-image': 'google/nano-banana/edit-image',
     'nano-banana': 'google/nano-banana'
   };
 

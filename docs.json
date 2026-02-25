@@ -76,6 +76,13 @@
             ]
           },
           {
+            "group": "File Uploads",
+            "pages": [
+              "api-reference/uploads/presign",
+              "api-reference/uploads/get-status"
+            ]
+          },
+          {
             "group": "Catalog",
             "pages": [
               "api-reference/catalog/models",
@@ -133,6 +140,12 @@
                 "group": "Nano Banana",
                 "pages": [
                   "models/image/google/nano-banana"
+                ]
+              },
+              {
+                "group": "Nano Banana Pro",
+                "pages": [
+                  "models/image/google/nano-banana-pro"
                 ]
               }
             ]

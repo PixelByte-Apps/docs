@@ -1,20 +1,18 @@
 ---
-title: "Veo 3.1 Quality — Text to Video"
+title: "Veo 3.1 — Text to Video (Quality)"
 api: "POST /v1/jobs/submit"
-description: "Generate premium quality videos from text prompts using Google's Veo 3.1 Quality model"
+description: "Generate premium quality videos from text prompts using Google's Veo 3.1 model (quality tier)"
 ---
 
-Generate premium quality videos from text descriptions with Google's Veo 3.1 Quality model. This is the high-quality variant of the Veo 3.1 family, optimized for maximum visual fidelity and detail.
+Generate premium quality videos from text descriptions with Google's Veo 3.1 model (quality tier). This is the high-quality variant of the Veo 3.1 family, optimized for maximum visual fidelity and detail.
 
 | Property | Value |
 |----------|-------|
 | **Provider** | Google |
-| **Model** | Veo 3.1 Quality |
+| **Model** | Veo 3.1 |
 | **Capability** | Text to Video |
-| **Base Cost** | Coming soon |
-| **Processing Time** | Coming soon |
-
-<Warning>This model's input schema and pricing are currently being configured. Parameters shown below are preliminary and subject to change.</Warning>
+| **Base Cost** | 200,000 micro-cents/second ($0.20/sec) |
+| **Processing Time** | ~240 seconds |
 
 ## Request Body
 
@@ -31,6 +29,9 @@ Generate premium quality videos from text descriptions with Google's Veo 3.1 Qua
     <ParamField body="aspect_ratio" type="string">
       Video aspect ratio. Default: `16:9`. Options: `16:9`, `9:16`.
     </ParamField>
+    <ParamField body="seed" type="integer">
+      Seed for reproducible results.
+    </ParamField>
     <ParamField body="resolution" type="string">
       Output resolution. Default: `720p`. Options: `720p`, `1080p`, `4k`.
     </ParamField>
@@ -39,9 +40,6 @@ Generate premium quality videos from text descriptions with Google's Veo 3.1 Qua
     </ParamField>
     <ParamField body="has_sound" type="string">
       Enable audio generation. Default: `true`. Options: `true`, `false`.
-    </ParamField>
-    <ParamField body="seed" type="integer">
-      Seed for reproducible results.
     </ParamField>
   </Expandable>
 </ParamField>
@@ -52,7 +50,26 @@ Generate premium quality videos from text descriptions with Google's Veo 3.1 Qua
 
 ## Pricing
 
-<Info>Pricing for Veo 3.1 Quality is currently being configured and will be announced soon.</Info>
+**Base cost:** 200,000 micro-cents per second ($0.20/sec)
+
+```
+finalCost = baseCost × duration × resolution × has_sound
+```
+
+| Factor | Option | Multiplier |
+|--------|--------|-----------|
+| **Duration** | `4` | 4x |
+| | `6` | 6x |
+| | `8` | 8x |
+| **Resolution** | `720p` | 1x |
+| | `1080p` | 1x |
+| | `4k` | 1.5x |
+| **Sound** | `false` | 1x |
+| | `true` | 1.5x |
+
+<Tip>
+**Default cost:** 8 seconds, 720p, with sound = 200,000 × 8 × 1 × 1.5 = **2,400,000 micro-cents ($2.40)**
+</Tip>
 
 ## Response
 
