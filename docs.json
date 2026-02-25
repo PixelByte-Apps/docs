@@ -22,7 +22,7 @@
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://dashboard.pixelbyte.app"
+      "href": "https://developer.pixelbyte.app"
     }
   },
   "navigation": {
@@ -180,7 +180,11 @@
       "display": "interactive"
     },
     "examples": {
-      "languages": ["curl", "python", "javascript"],
+      "languages": [
+        "curl",
+        "python",
+        "javascript"
+      ],
       "defaults": "required"
     }
   },
