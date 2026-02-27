@@ -44,10 +44,10 @@ description: "Get detailed information about a specific catalog model by its slu
 <RequestExample>
 ```bash cURL
 # Get a specific capability variant
-curl -X GET https://api.pixelbyte.app/v1/catalog/models/google/veo-3.1-fast/text-to-video
+curl -X GET https://api.muvi.video/v1/catalog/models/google/veo-3.1-fast/text-to-video
 
 # Get default capability
-curl -X GET https://api.pixelbyte.app/v1/catalog/models/google/nano-banana
+curl -X GET https://api.muvi.video/v1/catalog/models/google/nano-banana
 ```
 
 ```python Python
@@ -55,7 +55,7 @@ import requests
 
 slug = "google/veo-3.1-fast/text-to-video"
 response = requests.get(
-    f"https://api.pixelbyte.app/v1/catalog/models/{slug}"
+    f"https://api.muvi.video/v1/catalog/models/{slug}"
 )
 
 model = response.json()
@@ -67,7 +67,7 @@ print(f"Siblings: {[s['capability'] for s in model['siblings']]}")
 ```javascript JavaScript
 const slug = "google/veo-3.1-fast/text-to-video";
 const response = await fetch(
-  `https://api.pixelbyte.app/v1/catalog/models/${slug}`
+  `https://api.muvi.video/v1/catalog/models/${slug}`
 );
 
 const model = await response.json();
@@ -84,7 +84,7 @@ console.log(`Siblings:`, model.siblings.map(s => s.capability));
   "provider": {
     "id": "google",
     "name": "Google",
-    "logoUrl": "https://cdn.pixelbyte.app/providers/google.png"
+    "logoUrl": "https://cdn.muvi.video/providers/google.png"
   },
   "name": "Veo 3.1 Fast",
   "description": "Google's high-speed video generation model with text-to-video capability",

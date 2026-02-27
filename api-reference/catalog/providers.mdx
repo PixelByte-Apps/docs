@@ -28,13 +28,13 @@ Returns an array of provider objects. Providers with `modelCount: 0` are automat
 
 <RequestExample>
 ```bash cURL
-curl -X GET https://api.pixelbyte.app/v1/catalog/providers
+curl -X GET https://api.muvi.video/v1/catalog/providers
 ```
 
 ```python Python
 import requests
 
-response = requests.get("https://api.pixelbyte.app/v1/catalog/providers")
+response = requests.get("https://api.muvi.video/v1/catalog/providers")
 
 providers = response.json()
 for provider in providers:
@@ -42,7 +42,7 @@ for provider in providers:
 ```
 
 ```javascript JavaScript
-const response = await fetch("https://api.pixelbyte.app/v1/catalog/providers");
+const response = await fetch("https://api.muvi.video/v1/catalog/providers");
 
 const providers = await response.json();
 providers.forEach(provider => {
@@ -58,7 +58,7 @@ providers.forEach(provider => {
     "id": "google",
     "name": "Google",
     "description": "Google's AI video and image generation models",
-    "logoUrl": "https://cdn.pixelbyte.app/providers/google.png",
+    "logoUrl": "https://cdn.muvi.video/providers/google.png",
     "website": "https://ai.google",
     "color": "#4285F4",
     "modelCount": 5
@@ -67,7 +67,7 @@ providers.forEach(provider => {
     "id": "alibaba",
     "name": "Alibaba",
     "description": "Alibaba's Wan series video generation models",
-    "logoUrl": "https://cdn.pixelbyte.app/providers/alibaba.png",
+    "logoUrl": "https://cdn.muvi.video/providers/alibaba.png",
     "website": "https://www.alibabacloud.com",
     "color": "#FF6A00",
     "modelCount": 3

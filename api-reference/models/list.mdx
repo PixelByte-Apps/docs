@@ -33,7 +33,7 @@ Requires an API key with `list_models` scope.
 
 <RequestExample>
 ```bash cURL
-curl -X GET https://api.pixelbyte.app/v1/models \
+curl -X GET https://api.muvi.video/v1/models \
   -H "x-api-key: YOUR_API_KEY"
 ```
 
@@ -41,7 +41,7 @@ curl -X GET https://api.pixelbyte.app/v1/models \
 import requests
 
 response = requests.get(
-    "https://api.pixelbyte.app/v1/models",
+    "https://api.muvi.video/v1/models",
     headers={"x-api-key": "YOUR_API_KEY"}
 )
 
@@ -51,7 +51,7 @@ for model in data["models"]:
 ```
 
 ```javascript JavaScript
-const response = await fetch("https://api.pixelbyte.app/v1/models", {
+const response = await fetch("https://api.muvi.video/v1/models", {
   headers: { "x-api-key": "YOUR_API_KEY" }
 });
 

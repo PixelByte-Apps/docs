@@ -14,7 +14,7 @@ Include your API key as a Bearer token in the `Authorization` header:
 <CodeGroup>
 
 ```bash cURL
-curl https://api.pixelbyte.app/v1/jobs \
+curl https://api.muvi.video/v1/jobs \
   -H "Authorization: Bearer pb_your_api_key_here"
 ```
 
@@ -26,13 +26,13 @@ headers = {
 }
 
 response = requests.get(
-    "https://api.pixelbyte.app/v1/jobs",
+    "https://api.muvi.video/v1/jobs",
     headers=headers
 )
 ```
 
 ```javascript JavaScript
-const response = await fetch("https://api.pixelbyte.app/v1/jobs", {
+const response = await fetch("https://api.muvi.video/v1/jobs", {
   headers: {
     "Authorization": "Bearer pb_your_api_key_here"
   }
@@ -43,7 +43,7 @@ const response = await fetch("https://api.pixelbyte.app/v1/jobs", {
 
 ## Creating API Keys
 
-1. Sign in to the [PixelByte Dashboard](https://developer.pixelbyte.app)
+1. Sign in to the [PixelByte Dashboard](https://developer.muvi.video)
 2. Navigate to **Settings** > **API Keys**
 3. Click **Create New Key**
 4. Configure scopes and IP restrictions (optional)

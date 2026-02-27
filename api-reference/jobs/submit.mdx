@@ -73,7 +73,7 @@ Authorization: Bearer YOUR_API_KEY
 <CodeGroup>
 
 ```bash cURL
-curl -X POST https://api.pixelbyte.app/v1/jobs/submit \
+curl -X POST https://api.muvi.video/v1/jobs/submit \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -89,7 +89,7 @@ curl -X POST https://api.pixelbyte.app/v1/jobs/submit \
 import requests
 
 response = requests.post(
-    "https://api.pixelbyte.app/v1/jobs/submit",
+    "https://api.muvi.video/v1/jobs/submit",
     headers={
         "Authorization": "Bearer YOUR_API_KEY",
         "Content-Type": "application/json"
@@ -110,7 +110,7 @@ print(f"Estimated completion: {data['estimatedCompletionTime']}")
 ```
 
 ```javascript JavaScript
-const response = await fetch("https://api.pixelbyte.app/v1/jobs/submit", {
+const response = await fetch("https://api.muvi.video/v1/jobs/submit", {
   method: "POST",
   headers: {
     "Authorization": "Bearer YOUR_API_KEY",

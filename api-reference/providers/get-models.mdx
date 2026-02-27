@@ -49,7 +49,7 @@ Requires an API key with `list_models` scope.
 
 <RequestExample>
 ```bash cURL
-curl -X GET https://api.pixelbyte.app/v1/providers/google/models \
+curl -X GET https://api.muvi.video/v1/providers/google/models \
   -H "x-api-key: YOUR_API_KEY"
 ```
 
@@ -58,7 +58,7 @@ import requests
 
 provider_id = "google"
 response = requests.get(
-    f"https://api.pixelbyte.app/v1/providers/{provider_id}/models",
+    f"https://api.muvi.video/v1/providers/{provider_id}/models",
     headers={"x-api-key": "YOUR_API_KEY"}
 )
 
@@ -71,7 +71,7 @@ for model in data["models"]:
 ```javascript JavaScript
 const providerId = "google";
 const response = await fetch(
-  `https://api.pixelbyte.app/v1/providers/${providerId}/models`,
+  `https://api.muvi.video/v1/providers/${providerId}/models`,
   { headers: { "x-api-key": "YOUR_API_KEY" } }
 );
 
@@ -90,7 +90,7 @@ data.models.forEach(model => {
     "id": "google",
     "name": "Google",
     "description": "Google's AI video and image generation models",
-    "logoUrl": "https://cdn.pixelbyte.app/providers/google.png",
+    "logoUrl": "https://cdn.muvi.video/providers/google.png",
     "website": "https://ai.google",
     "color": "#4285F4",
     "categories": ["video", "image"],

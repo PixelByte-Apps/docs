@@ -27,13 +27,13 @@ Returns an array of capability group objects.
 
 <RequestExample>
 ```bash cURL
-curl -X GET https://api.pixelbyte.app/v1/catalog/capability-groups
+curl -X GET https://api.muvi.video/v1/catalog/capability-groups
 ```
 
 ```python Python
 import requests
 
-response = requests.get("https://api.pixelbyte.app/v1/catalog/capability-groups")
+response = requests.get("https://api.muvi.video/v1/catalog/capability-groups")
 
 groups = response.json()
 for group in groups:
@@ -42,7 +42,7 @@ for group in groups:
 
 ```javascript JavaScript
 const response = await fetch(
-  "https://api.pixelbyte.app/v1/catalog/capability-groups"
+  "https://api.muvi.video/v1/catalog/capability-groups"
 );
 
 const groups = await response.json();

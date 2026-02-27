@@ -9,7 +9,7 @@ Get up and running with PixelByte API in three simple steps.
 
 ## Step 1: Get Your API Key
 
-Create an API key from the [PixelByte Dashboard](https://developer.pixelbyte.app).
+Create an API key from the [PixelByte Dashboard](https://developer.muvi.video).
 
 1. Sign in to your account
 2. Navigate to **Settings** > **API Keys**
@@ -31,7 +31,7 @@ Let's generate a video using Google's Veo model.
 <CodeGroup>
 
 ```bash cURL
-curl -X POST https://api.pixelbyte.app/v1/jobs/submit \
+curl -X POST https://api.muvi.video/v1/jobs/submit \
   -H "Authorization: Bearer $PIXELBYTE_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -45,7 +45,7 @@ curl -X POST https://api.pixelbyte.app/v1/jobs/submit \
 ```python Python
 import requests
 
-url = "https://api.pixelbyte.app/v1/jobs/submit"
+url = "https://api.muvi.video/v1/jobs/submit"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY",
     "Content-Type": "application/json"
@@ -63,7 +63,7 @@ print(data)
 ```
 
 ```javascript JavaScript
-const response = await fetch("https://api.pixelbyte.app/v1/jobs/submit", {
+const response = await fetch("https://api.muvi.video/v1/jobs/submit", {
   method: "POST",
   headers: {
     "Authorization": "Bearer YOUR_API_KEY",
@@ -110,7 +110,7 @@ AI generation takes time. Poll the status endpoint until the job completes.
 <CodeGroup>
 
 ```bash cURL
-curl https://api.pixelbyte.app/v1/jobs/job_abc123 \
+curl https://api.muvi.video/v1/jobs/job_abc123 \
   -H "Authorization: Bearer $PIXELBYTE_API_KEY"
 ```
 
@@ -119,7 +119,7 @@ import requests
 import time
 
 job_id = "job_abc123"
-url = f"https://api.pixelbyte.app/v1/jobs/{job_id}"
+url = f"https://api.muvi.video/v1/jobs/{job_id}"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY"
 }
@@ -147,7 +147,7 @@ const jobId = "job_abc123";
 async function pollJob() {
   while (true) {
     const response = await fetch(
-      `https://api.pixelbyte.app/v1/jobs/${jobId}`,
+      `https://api.muvi.video/v1/jobs/${jobId}`,
       {
         headers: {
           "Authorization": "Bearer YOUR_API_KEY"
@@ -187,7 +187,7 @@ pollJob();
     "status": "completed",
     "model": "google/veo-3.1-fast/text-to-video",
     "output": {
-      "url": "https://cdn.pixelbyte.app/outputs/job_abc123/output.mp4",
+      "url": "https://cdn.muvi.video/outputs/job_abc123/output.mp4",
       "contentType": "video/mp4",
       "durationSeconds": 8
     },

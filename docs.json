@@ -16,13 +16,13 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:support@pixelbyte.app"
+        "href": "mailto:support@muvi.video"
       }
     ],
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://developer.pixelbyte.app"
+      "href": "https://developer.muvi.video"
     }
   },
   "navigation": {
@@ -162,16 +162,16 @@
         },
         {
           "anchor": "Status",
-          "href": "https://status.pixelbyte.app",
+          "href": "https://status.muvi.video",
           "icon": "signal"
         }
       ]
     }
   },
   "api": {
-    "baseUrl": "https://api.pixelbyte.app",
+    "baseUrl": "https://api.muvi.video",
     "mdx": {
-      "server": "https://api.pixelbyte.app",
+      "server": "https://api.muvi.video",
       "auth": {
         "method": "bearer"
       }

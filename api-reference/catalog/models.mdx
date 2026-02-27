@@ -41,10 +41,10 @@ Returns an array of catalog model objects.
 <RequestExample>
 ```bash cURL
 # Public access (no auth)
-curl -X GET https://api.pixelbyte.app/v1/catalog/models
+curl -X GET https://api.muvi.video/v1/catalog/models
 
 # With auth for personalized results
-curl -X GET https://api.pixelbyte.app/v1/catalog/models \
+curl -X GET https://api.muvi.video/v1/catalog/models \
   -H "Authorization: Bearer YOUR_TOKEN"
 ```
 
@@ -52,11 +52,11 @@ curl -X GET https://api.pixelbyte.app/v1/catalog/models \
 import requests
 
 # Public access
-response = requests.get("https://api.pixelbyte.app/v1/catalog/models")
+response = requests.get("https://api.muvi.video/v1/catalog/models")
 
 # With auth for personalized results
 response = requests.get(
-    "https://api.pixelbyte.app/v1/catalog/models",
+    "https://api.muvi.video/v1/catalog/models",
     headers={"Authorization": "Bearer YOUR_TOKEN"}
 )
 
@@ -67,10 +67,10 @@ for model in models:
 
 ```javascript JavaScript
 // Public access
-const response = await fetch("https://api.pixelbyte.app/v1/catalog/models");
+const response = await fetch("https://api.muvi.video/v1/catalog/models");
 
 // With auth for personalized results
-const authResponse = await fetch("https://api.pixelbyte.app/v1/catalog/models", {
+const authResponse = await fetch("https://api.muvi.video/v1/catalog/models", {
   headers: { "Authorization": "Bearer YOUR_TOKEN" }
 });
 
@@ -89,7 +89,7 @@ models.forEach(model => {
     "provider": {
       "id": "google",
       "name": "Google",
-      "logoUrl": "https://cdn.pixelbyte.app/providers/google.png"
+      "logoUrl": "https://cdn.muvi.video/providers/google.png"
     },
     "category": "video",
     "capability": "text-to-video",

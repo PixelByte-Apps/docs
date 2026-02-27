@@ -25,13 +25,13 @@ Returns an array of category objects with dynamic model counts.
 
 <RequestExample>
 ```bash cURL
-curl -X GET https://api.pixelbyte.app/v1/catalog/categories
+curl -X GET https://api.muvi.video/v1/catalog/categories
 ```
 
 ```python Python
 import requests
 
-response = requests.get("https://api.pixelbyte.app/v1/catalog/categories")
+response = requests.get("https://api.muvi.video/v1/catalog/categories")
 
 categories = response.json()
 for cat in categories:
@@ -39,7 +39,7 @@ for cat in categories:
 ```
 
 ```javascript JavaScript
-const response = await fetch("https://api.pixelbyte.app/v1/catalog/categories");
+const response = await fetch("https://api.muvi.video/v1/catalog/categories");
 
 const categories = await response.json();
 categories.forEach(cat => {

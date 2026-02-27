@@ -23,7 +23,7 @@ Include a `webhookUrl` in your job submission request:
 
 <CodeGroup>
 ```bash cURL
-curl -X POST https://api.pixelbyte.app/v1/jobs/submit \
+curl -X POST https://api.muvi.video/v1/jobs/submit \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -37,7 +37,7 @@ curl -X POST https://api.pixelbyte.app/v1/jobs/submit \
 ```
 
 ```javascript Node.js
-const response = await fetch("https://api.pixelbyte.app/v1/jobs/submit", {
+const response = await fetch("https://api.muvi.video/v1/jobs/submit", {
   method: "POST",
   headers: {
     "Authorization": "Bearer YOUR_API_KEY",
@@ -58,7 +58,7 @@ const response = await fetch("https://api.pixelbyte.app/v1/jobs/submit", {
 import requests
 
 response = requests.post(
-    "https://api.pixelbyte.app/v1/jobs/submit",
+    "https://api.muvi.video/v1/jobs/submit",
     headers={
         "Authorization": "Bearer YOUR_API_KEY",
         "Content-Type": "application/json"
@@ -87,7 +87,7 @@ When a job completes or fails, PixelByte sends a POST request to your webhook UR
   "requestId": "req_xyz789",
   "status": "completed",
   "output": {
-    "imageUrl": "https://cdn.pixelbyte.app/outputs/job_abc123.png",
+    "imageUrl": "https://cdn.muvi.video/outputs/job_abc123.png",
     "metadata": {
       "width": 1024,
       "height": 1024,
