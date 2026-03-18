@@ -1,0 +1,247 @@
+---
+title: "Sora 2"
+api: "POST /v1/jobs/submit"
+description: "Generate videos using Sora 2 via PixelByte API"
+---
+
+Generate videos with OpenAI's Sora 2 model. Supports text-to-video and image-to-video capabilities with multiple duration options.
+
+| Property | Value |
+|----------|-------|
+| **Provider** | OpenAI |
+| **Slug** | `openai/sora-2` |
+| **Capabilities** | Text to Video, Image to Video |
+| **Base Cost** | 100,000 micro-cents/second ($0.10/sec) |
+| **Processing Time** | ~180 seconds |
+
+---
+
+## Text to Video
+
+Generate videos from text descriptions.
+
+**Slug:** `openai/sora-2/text-to-video`
+
+### Request Body
+
+<ParamField body="model" type="string" required placeholder="openai/sora-2/text-to-video">
+  Model slug. Use `openai/sora-2/text-to-video` for text-to-video generation.
+</ParamField>
+
+<ParamField body="input" type="object" required>
+  Input parameters for text-to-video generation.
+  <Expandable title="properties" defaultOpen>
+    <ParamField body="prompt" type="string" required>
+      Text description of the video to generate (max 1000 characters).
+    </ParamField>
+    <ParamField body="aspect_ratio" type="string">
+      Video aspect ratio. Default: `16:9`. Options: `16:9`, `9:16`.
+    </ParamField>
+    <ParamField body="duration" type="string">
+      Video duration in seconds. Default: `4`. Options: `4`, `8`, `12`.
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="webhookUrl" type="string">
+  HTTPS URL to receive a webhook notification when the job completes or fails.
+</ParamField>
+
+### Code Examples
+
+<CodeGroup>
+
+```bash cURL
+curl -X POST https://api.muvi.video/v1/jobs/submit \
+  -H "Authorization: Bearer $PIXELBYTE_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "openai/sora-2/text-to-video",
+    "input": {
+      "prompt": "A timelapse of a flower blooming in a garden",
+      "aspect_ratio": "16:9",
+      "duration": "8"
+    }
+  }'
+```
+
+```python Python
+import requests
+
+response = requests.post(
+    "https://api.muvi.video/v1/jobs/submit",
+    headers={
+        "Authorization": "Bearer YOUR_API_KEY",
+        "Content-Type": "application/json"
+    },
+    json={
+        "model": "openai/sora-2/text-to-video",
+        "input": {
+            "prompt": "A timelapse of a flower blooming in a garden",
+            "aspect_ratio": "16:9",
+            "duration": "8"
+        }
+    }
+)
+
+data = response.json()
+print(data)
+```
+
+```javascript JavaScript
+const response = await fetch("https://api.muvi.video/v1/jobs/submit", {
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    model: "openai/sora-2/text-to-video",
+    input: {
+      prompt: "A timelapse of a flower blooming in a garden",
+      aspect_ratio: "16:9",
+      duration: "8"
+    }
+  })
+});
+
+const data = await response.json();
+console.log(data);
+```
+
+</CodeGroup>
+
+---
+
+## Image to Video
+
+Generate videos from a source image.
+
+**Slug:** `openai/sora-2/image-to-video`
+
+### Request Body
+
+<ParamField body="model" type="string" required placeholder="openai/sora-2/image-to-video">
+  Model slug. Use `openai/sora-2/image-to-video` for image-to-video generation.
+</ParamField>
+
+<ParamField body="input" type="object" required>
+  Input parameters for image-to-video generation.
+  <Expandable title="properties" defaultOpen>
+    <ParamField body="image_url" type="string" required>
+      URL of the source image to animate.
+    </ParamField>
+    <ParamField body="aspect_ratio" type="string">
+      Video aspect ratio. Default: `16:9`. Options: `16:9`, `9:16`.
+    </ParamField>
+    <ParamField body="duration" type="string">
+      Video duration in seconds. Default: `4`. Options: `4`, `8`, `12`.
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="webhookUrl" type="string">
+  HTTPS URL to receive a webhook notification when the job completes or fails.
+</ParamField>
+
+### Code Examples
+
+<CodeGroup>
+
+```bash cURL
+curl -X POST https://api.muvi.video/v1/jobs/submit \
+  -H "Authorization: Bearer $PIXELBYTE_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "openai/sora-2/image-to-video",
+    "input": {
+      "image_url": "https://example.com/landscape.jpg",
+      "aspect_ratio": "16:9",
+      "duration": "8"
+    }
+  }'
+```
+
+```python Python
+import requests
+
+response = requests.post(
+    "https://api.muvi.video/v1/jobs/submit",
+    headers={
+        "Authorization": "Bearer YOUR_API_KEY",
+        "Content-Type": "application/json"
+    },
+    json={
+        "model": "openai/sora-2/image-to-video",
+        "input": {
+            "image_url": "https://example.com/landscape.jpg",
+            "aspect_ratio": "16:9",
+            "duration": "8"
+        }
+    }
+)
+
+data = response.json()
+print(data)
+```
+
+```javascript JavaScript
+const response = await fetch("https://api.muvi.video/v1/jobs/submit", {
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    model: "openai/sora-2/image-to-video",
+    input: {
+      image_url: "https://example.com/landscape.jpg",
+      aspect_ratio: "16:9",
+      duration: "8"
+    }
+  })
+});
+
+const data = await response.json();
+console.log(data);
+```
+
+</CodeGroup>
+
+---
+
+## Pricing
+
+**Base cost:** 100,000 micro-cents per second ($0.10/sec)
+
+```
+finalCost = baseCost × duration
+```
+
+| Factor | Option | Multiplier |
+|--------|--------|-----------|
+| **Duration** | `4` | 4x |
+| | `8` | 8x |
+| | `12` | 12x |
+
+<Tip>
+**Default cost:** 4 seconds = 100,000 × 4 = **400,000 micro-cents ($0.40)**
+</Tip>
+
+## Response
+
+<ResponseField name="jobId" type="string">
+  Unique identifier for the submitted job.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Initial job status. Always `"pending"` on successful submission.
+</ResponseField>
+
+<ResponseField name="estimatedCompletionTime" type="string">
+  ISO 8601 timestamp of the estimated completion time.
+</ResponseField>
+
+<ResponseField name="costMicroCents" type="number">
+  The cost of the job in micro-cents.
+</ResponseField>

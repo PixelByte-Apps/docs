@@ -1,0 +1,148 @@
+---
+title: "Grok Imagine"
+api: "POST /v1/jobs/submit"
+description: "Generate videos from images using xAI's Grok Imagine model"
+---
+
+Generate videos from images with xAI's Grok Imagine model. Supports multiple durations and resolutions with per-request pricing.
+
+| Property | Value |
+|----------|-------|
+| **Provider** | xAI |
+| **Model** | Grok Imagine |
+| **Capability** | Image to Video |
+| **Base Cost** | 50,000 micro-cents/request ($0.50/request) |
+| **Processing Time** | ~100 seconds |
+
+## Request Body
+
+<ParamField body="model" type="string" required placeholder="xai/grok-imagine/image-to-video">
+  Model slug. Use `xai/grok-imagine/image-to-video` for image-to-video generation.
+</ParamField>
+
+<ParamField body="input" type="object" required>
+  Input parameters for image-to-video generation.
+  <Expandable title="properties" defaultOpen>
+    <ParamField body="prompt" type="string" required>
+      Text description of the video to generate.
+    </ParamField>
+    <ParamField body="image_url" type="string" required>
+      URL of the input image to animate.
+    </ParamField>
+    <ParamField body="duration" type="string" required>
+      Video duration in seconds. Options: `6`, `10`, `15`.
+    </ParamField>
+    <ParamField body="resolution" type="string" required>
+      Output resolution. Options: `480p`, `720p`.
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="webhookUrl" type="string">
+  HTTPS URL to receive a webhook notification when the job completes or fails.
+</ParamField>
+
+## Pricing
+
+**Base cost:** 50,000 micro-cents per request ($0.50/request)
+
+```
+finalCost = baseCost × duration × resolution
+```
+
+| Factor | Option | Multiplier |
+|--------|--------|-----------|
+| **Duration** | `6` | 6x |
+| | `10` | 10x |
+| | `15` | 15x |
+| **Resolution** | `480p` | 1x |
+| | `720p` | 1.4x |
+
+<Tip>
+**Example cost:** 6 seconds, 480p = 50,000 × 6 × 1 = **300,000 micro-cents ($3.00)**
+</Tip>
+
+## Response
+
+<ResponseField name="jobId" type="string">
+  Unique identifier for the submitted job.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Initial job status. Always `"pending"` on successful submission.
+</ResponseField>
+
+<ResponseField name="estimatedCompletionTime" type="string">
+  ISO 8601 timestamp of the estimated completion time.
+</ResponseField>
+
+<ResponseField name="costMicroCents" type="number">
+  The cost of the job in micro-cents.
+</ResponseField>
+
+## Code Examples
+
+<CodeGroup>
+
+```bash cURL
+curl -X POST https://api.muvi.video/v1/jobs/submit \
+  -H "Authorization: Bearer $PIXELBYTE_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "xai/grok-imagine/image-to-video",
+    "input": {
+      "prompt": "A golden retriever running through a sunlit meadow",
+      "image_url": "https://example.com/dog.jpg",
+      "duration": "6",
+      "resolution": "720p"
+    }
+  }'
+```
+
+```python Python
+import requests
+
+response = requests.post(
+    "https://api.muvi.video/v1/jobs/submit",
+    headers={
+        "Authorization": "Bearer YOUR_API_KEY",
+        "Content-Type": "application/json"
+    },
+    json={
+        "model": "xai/grok-imagine/image-to-video",
+        "input": {
+            "prompt": "A golden retriever running through a sunlit meadow",
+            "image_url": "https://example.com/dog.jpg",
+            "duration": "6",
+            "resolution": "720p"
+        }
+    }
+)
+
+data = response.json()
+print(data)
+```
+
+```javascript JavaScript
+const response = await fetch("https://api.muvi.video/v1/jobs/submit", {
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    model: "xai/grok-imagine/image-to-video",
+    input: {
+      prompt: "A golden retriever running through a sunlit meadow",
+      image_url: "https://example.com/dog.jpg",
+      duration: "6",
+      resolution: "720p"
+    }
+  })
+});
+
+const data = await response.json();
+console.log(data);
+```
+
+</CodeGroup>

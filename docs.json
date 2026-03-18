@@ -110,9 +110,78 @@
                 ]
               },
               {
-                "group": "Veo 3.1 Quality",
+                "group": "Veo 3.1",
                 "pages": [
-                  "models/video/google/veo-3-1-quality-text-to-video"
+                  "models/video/google/veo-3-1"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "OpenAI",
+            "pages": [
+              {
+                "group": "Sora 2",
+                "pages": [
+                  "models/video/openai/sora-2"
+                ]
+              },
+              {
+                "group": "Sora 2 Pro",
+                "pages": [
+                  "models/video/openai/sora-2-pro"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Runway",
+            "pages": [
+              {
+                "group": "Gen 4.5",
+                "pages": [
+                  "models/video/runway/gen-4-5"
+                ]
+              },
+              {
+                "group": "Gen 4",
+                "pages": [
+                  "models/video/runway/gen-4"
+                ]
+              },
+              {
+                "group": "Gen 4 Turbo",
+                "pages": [
+                  "models/video/runway/gen-4-turbo"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Kling",
+            "pages": [
+              {
+                "group": "Kling 3.0 Pro",
+                "pages": [
+                  "models/video/kling/kling-3-0-pro"
+                ]
+              },
+              {
+                "group": "Kling 3.0 Standard",
+                "pages": [
+                  "models/video/kling/kling-3-0-standard"
+                ]
+              },
+              {
+                "group": "Kling 2.6 Pro",
+                "pages": [
+                  "models/video/kling/kling-2-6-pro"
+                ]
+              },
+              {
+                "group": "Kling 2.6 I2V",
+                "pages": [
+                  "models/video/kling/kling-2-6-i2v"
                 ]
               }
             ]
@@ -124,6 +193,23 @@
                 "group": "Wan 2.2 Super",
                 "pages": [
                   "models/video/alibaba/wan-2-2-super-image-to-video"
+                ]
+              },
+              {
+                "group": "Wan 2.6 Flash",
+                "pages": [
+                  "models/video/alibaba/wan-2-6-flash"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "xAI",
+            "pages": [
+              {
+                "group": "Grok Imagine",
+                "pages": [
+                  "models/video/xai/grok-imagine"
                 ]
               }
             ]
@@ -143,9 +229,60 @@
                 ]
               },
               {
+                "group": "Nano Banana 2",
+                "pages": [
+                  "models/image/google/nano-banana-2"
+                ]
+              },
+              {
                 "group": "Nano Banana Pro",
                 "pages": [
                   "models/image/google/nano-banana-pro"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "OpenAI",
+            "pages": [
+              {
+                "group": "GPT Image 1.5",
+                "pages": [
+                  "models/image/openai/gpt-image-1-5"
+                ]
+              },
+              {
+                "group": "GPT Image 1 Mini",
+                "pages": [
+                  "models/image/openai/gpt-image-1-mini"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Seedance",
+            "pages": [
+              {
+                "group": "Seedream 5",
+                "pages": [
+                  "models/image/seedance/seedream-5"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Runway",
+            "pages": [
+              {
+                "group": "Gen 4 Image",
+                "pages": [
+                  "models/image/runway/gen-4-image"
+                ]
+              },
+              {
+                "group": "Gen 4 Turbo Image",
+                "pages": [
+                  "models/image/runway/gen-4-turbo-image"
                 ]
               }
             ]

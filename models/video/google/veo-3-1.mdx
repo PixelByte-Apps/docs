@@ -1,0 +1,406 @@
+---
+title: "Veo 3.1"
+api: "POST /v1/jobs/submit"
+description: "Generate videos using Veo 3.1 via PixelByte API"
+---
+
+Generate high-quality videos with Google's Veo 3.1 model. Supports text-to-video, image-to-video, and reference-to-video capabilities with multiple resolutions, durations, and optional audio generation.
+
+| Property | Value |
+|----------|-------|
+| **Provider** | Google |
+| **Slug** | `google/veo-3.1` |
+| **Capabilities** | Text to Video, Image to Video, Reference to Video |
+| **Base Cost** | 200,000 micro-cents/second ($0.20/sec) |
+| **Processing Time** | ~240 seconds |
+
+---
+
+## Text to Video
+
+Generate videos from text descriptions.
+
+**Slug:** `google/veo-3.1/text-to-video`
+
+### Request Body
+
+<ParamField body="model" type="string" required placeholder="google/veo-3.1/text-to-video">
+  Model slug. Use `google/veo-3.1/text-to-video` for text-to-video generation.
+</ParamField>
+
+<ParamField body="input" type="object" required>
+  Input parameters for text-to-video generation.
+  <Expandable title="properties" defaultOpen>
+    <ParamField body="prompt" type="string" required>
+      Text description of the video to generate (max 4000 characters).
+    </ParamField>
+    <ParamField body="aspect_ratio" type="string">
+      Video aspect ratio. Default: `16:9`. Options: `16:9`, `9:16`.
+    </ParamField>
+    <ParamField body="resolution" type="string">
+      Output resolution. Default: `720p`. Options: `720p`, `1080p`, `4k`.
+    </ParamField>
+    <ParamField body="duration" type="string">
+      Video duration in seconds. Default: `8`. Options: `4`, `6`, `8`.
+    </ParamField>
+    <ParamField body="has_sound" type="string">
+      Enable audio generation. Default: `false`. Options: `true`, `false`.
+    </ParamField>
+    <ParamField body="seed" type="integer">
+      Seed for reproducible results.
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="webhookUrl" type="string">
+  HTTPS URL to receive a webhook notification when the job completes or fails.
+</ParamField>
+
+### Code Examples
+
+<CodeGroup>
+
+```bash cURL
+curl -X POST https://api.muvi.video/v1/jobs/submit \
+  -H "Authorization: Bearer $PIXELBYTE_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "google/veo-3.1/text-to-video",
+    "input": {
+      "prompt": "A golden retriever running through a sunlit meadow",
+      "aspect_ratio": "16:9",
+      "resolution": "1080p",
+      "duration": "8",
+      "has_sound": "true"
+    }
+  }'
+```
+
+```python Python
+import requests
+
+response = requests.post(
+    "https://api.muvi.video/v1/jobs/submit",
+    headers={
+        "Authorization": "Bearer YOUR_API_KEY",
+        "Content-Type": "application/json"
+    },
+    json={
+        "model": "google/veo-3.1/text-to-video",
+        "input": {
+            "prompt": "A golden retriever running through a sunlit meadow",
+            "aspect_ratio": "16:9",
+            "resolution": "1080p",
+            "duration": "8",
+            "has_sound": "true"
+        }
+    }
+)
+
+data = response.json()
+print(data)
+```
+
+```javascript JavaScript
+const response = await fetch("https://api.muvi.video/v1/jobs/submit", {
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    model: "google/veo-3.1/text-to-video",
+    input: {
+      prompt: "A golden retriever running through a sunlit meadow",
+      aspect_ratio: "16:9",
+      resolution: "1080p",
+      duration: "8",
+      has_sound: "true"
+    }
+  })
+});
+
+const data = await response.json();
+console.log(data);
+```
+
+</CodeGroup>
+
+---
+
+## Image to Video
+
+Generate videos from an image and text prompt.
+
+**Slug:** `google/veo-3.1/image-to-video`
+
+### Request Body
+
+<ParamField body="model" type="string" required placeholder="google/veo-3.1/image-to-video">
+  Model slug. Use `google/veo-3.1/image-to-video` for image-to-video generation.
+</ParamField>
+
+<ParamField body="input" type="object" required>
+  Input parameters for image-to-video generation.
+  <Expandable title="properties" defaultOpen>
+    <ParamField body="prompt" type="string" required>
+      Text description of the video to generate (max 4000 characters).
+    </ParamField>
+    <ParamField body="image_url" type="string" required>
+      URL of the source image to animate.
+    </ParamField>
+    <ParamField body="aspect_ratio" type="string">
+      Video aspect ratio. Default: `16:9`. Options: `16:9`, `9:16`.
+    </ParamField>
+    <ParamField body="resolution" type="string">
+      Output resolution. Default: `720p`. Options: `720p`, `1080p`, `4k`.
+    </ParamField>
+    <ParamField body="duration" type="string">
+      Video duration in seconds. Default: `8`. Options: `4`, `6`, `8`.
+    </ParamField>
+    <ParamField body="has_sound" type="string">
+      Enable audio generation. Default: `false`. Options: `true`, `false`.
+    </ParamField>
+    <ParamField body="seed" type="integer">
+      Seed for reproducible results.
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="webhookUrl" type="string">
+  HTTPS URL to receive a webhook notification when the job completes or fails.
+</ParamField>
+
+### Code Examples
+
+<CodeGroup>
+
+```bash cURL
+curl -X POST https://api.muvi.video/v1/jobs/submit \
+  -H "Authorization: Bearer $PIXELBYTE_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "google/veo-3.1/image-to-video",
+    "input": {
+      "prompt": "The dog starts running and jumps over a fence",
+      "image_url": "https://example.com/dog.jpg",
+      "aspect_ratio": "16:9",
+      "resolution": "1080p",
+      "duration": "8",
+      "has_sound": "false"
+    }
+  }'
+```
+
+```python Python
+import requests
+
+response = requests.post(
+    "https://api.muvi.video/v1/jobs/submit",
+    headers={
+        "Authorization": "Bearer YOUR_API_KEY",
+        "Content-Type": "application/json"
+    },
+    json={
+        "model": "google/veo-3.1/image-to-video",
+        "input": {
+            "prompt": "The dog starts running and jumps over a fence",
+            "image_url": "https://example.com/dog.jpg",
+            "aspect_ratio": "16:9",
+            "resolution": "1080p",
+            "duration": "8",
+            "has_sound": "false"
+        }
+    }
+)
+
+data = response.json()
+print(data)
+```
+
+```javascript JavaScript
+const response = await fetch("https://api.muvi.video/v1/jobs/submit", {
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    model: "google/veo-3.1/image-to-video",
+    input: {
+      prompt: "The dog starts running and jumps over a fence",
+      image_url: "https://example.com/dog.jpg",
+      aspect_ratio: "16:9",
+      resolution: "1080p",
+      duration: "8",
+      has_sound: "false"
+    }
+  })
+});
+
+const data = await response.json();
+console.log(data);
+```
+
+</CodeGroup>
+
+---
+
+## Reference to Video
+
+Generate videos using reference images for style and character consistency.
+
+**Slug:** `google/veo-3.1/reference-to-video`
+
+### Request Body
+
+<ParamField body="model" type="string" required placeholder="google/veo-3.1/reference-to-video">
+  Model slug. Use `google/veo-3.1/reference-to-video` for reference-to-video generation.
+</ParamField>
+
+<ParamField body="input" type="object" required>
+  Input parameters for reference-to-video generation.
+  <Expandable title="properties" defaultOpen>
+    <ParamField body="prompt" type="string" required>
+      Text description of the video to generate (max 4000 characters).
+    </ParamField>
+    <ParamField body="image_urls" type="array" required>
+      Array of reference image URLs for style and character consistency.
+    </ParamField>
+    <ParamField body="aspect_ratio" type="string">
+      Video aspect ratio. Default: `16:9`. Options: `16:9`, `9:16`.
+    </ParamField>
+    <ParamField body="resolution" type="string">
+      Output resolution. Default: `720p`. Options: `720p`, `1080p`, `4k`.
+    </ParamField>
+    <ParamField body="duration" type="string">
+      Video duration in seconds. Default: `8`. Options: `4`, `6`, `8`.
+    </ParamField>
+    <ParamField body="has_sound" type="string">
+      Enable audio generation. Default: `false`. Options: `true`, `false`.
+    </ParamField>
+    <ParamField body="seed" type="integer">
+      Seed for reproducible results.
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="webhookUrl" type="string">
+  HTTPS URL to receive a webhook notification when the job completes or fails.
+</ParamField>
+
+### Code Examples
+
+<CodeGroup>
+
+```bash cURL
+curl -X POST https://api.muvi.video/v1/jobs/submit \
+  -H "Authorization: Bearer $PIXELBYTE_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "google/veo-3.1/reference-to-video",
+    "input": {
+      "prompt": "The character walks through a futuristic city at night",
+      "image_urls": ["https://example.com/character-ref.jpg", "https://example.com/style-ref.jpg"],
+      "aspect_ratio": "16:9",
+      "resolution": "1080p",
+      "duration": "8",
+      "has_sound": "false"
+    }
+  }'
+```
+
+```python Python
+import requests
+
+response = requests.post(
+    "https://api.muvi.video/v1/jobs/submit",
+    headers={
+        "Authorization": "Bearer YOUR_API_KEY",
+        "Content-Type": "application/json"
+    },
+    json={
+        "model": "google/veo-3.1/reference-to-video",
+        "input": {
+            "prompt": "The character walks through a futuristic city at night",
+            "image_urls": ["https://example.com/character-ref.jpg", "https://example.com/style-ref.jpg"],
+            "aspect_ratio": "16:9",
+            "resolution": "1080p",
+            "duration": "8",
+            "has_sound": "false"
+        }
+    }
+)
+
+data = response.json()
+print(data)
+```
+
+```javascript JavaScript
+const response = await fetch("https://api.muvi.video/v1/jobs/submit", {
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    model: "google/veo-3.1/reference-to-video",
+    input: {
+      prompt: "The character walks through a futuristic city at night",
+      image_urls: ["https://example.com/character-ref.jpg", "https://example.com/style-ref.jpg"],
+      aspect_ratio: "16:9",
+      resolution: "1080p",
+      duration: "8",
+      has_sound: "false"
+    }
+  })
+});
+
+const data = await response.json();
+console.log(data);
+```
+
+</CodeGroup>
+
+---
+
+## Pricing
+
+**Base cost:** 200,000 micro-cents per second ($0.20/sec)
+
+```
+finalCost = baseCost × duration × resolution × has_sound
+```
+
+| Factor | Option | Multiplier |
+|--------|--------|-----------|
+| **Duration** | `4` | 4x |
+| | `6` | 6x |
+| | `8` | 8x |
+| **Resolution** | `720p` | 1x |
+| | `1080p` | 1x |
+| | `4k` | 1.5x |
+| **Sound** | `false` | 1x |
+| | `true` | 1.5x |
+
+<Tip>
+**Default cost:** 8 seconds, 720p, no sound = 200,000 × 8 × 1 × 1 = **1,600,000 micro-cents ($1.60)**
+</Tip>
+
+## Response
+
+<ResponseField name="jobId" type="string">
+  Unique identifier for the submitted job.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Initial job status. Always `"pending"` on successful submission.
+</ResponseField>
+
+<ResponseField name="estimatedCompletionTime" type="string">
+  ISO 8601 timestamp of the estimated completion time.
+</ResponseField>
+
+<ResponseField name="costMicroCents" type="number">
+  The cost of the job in micro-cents.
+</ResponseField>

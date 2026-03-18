@@ -1,0 +1,259 @@
+---
+title: "Gen 4.5"
+api: "POST /v1/jobs/submit"
+description: "Generate videos using Gen 4.5 via PixelByte API"
+---
+
+Generate high-quality videos with Runway's Gen 4.5 model. Supports text-to-video and image-to-video capabilities with flexible duration options up to 10 seconds and multiple aspect ratios.
+
+| Property | Value |
+|----------|-------|
+| **Provider** | Runway |
+| **Slug** | `runway/gen-4.5` |
+| **Capabilities** | Text to Video, Image to Video |
+| **Base Cost** | 120,000 micro-cents/second ($0.12/sec) |
+| **Processing Time** | ~180 seconds |
+
+---
+
+## Text to Video
+
+Generate videos from text descriptions.
+
+**Slug:** `runway/gen-4.5/text-to-video`
+
+### Request Body
+
+<ParamField body="model" type="string" required placeholder="runway/gen-4.5/text-to-video">
+  Model slug. Use `runway/gen-4.5/text-to-video` for text-to-video generation.
+</ParamField>
+
+<ParamField body="input" type="object" required>
+  Input parameters for text-to-video generation.
+  <Expandable title="properties" defaultOpen>
+    <ParamField body="prompt" type="string" required>
+      Text description of the video to generate (max 5000 characters).
+    </ParamField>
+    <ParamField body="aspect_ratio" type="string">
+      Video aspect ratio. Default: `16:9`. Options: `16:9`, `9:16`, `1:1`, `4:3`, `3:4`, `21:9`.
+    </ParamField>
+    <ParamField body="duration" type="string">
+      Video duration in seconds. Default: `5`. Options: `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`.
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="webhookUrl" type="string">
+  HTTPS URL to receive a webhook notification when the job completes or fails.
+</ParamField>
+
+### Code Examples
+
+<CodeGroup>
+
+```bash cURL
+curl -X POST https://api.muvi.video/v1/jobs/submit \
+  -H "Authorization: Bearer $PIXELBYTE_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "runway/gen-4.5/text-to-video",
+    "input": {
+      "prompt": "A drone shot flying over a tropical beach at sunset with waves crashing on the shore",
+      "aspect_ratio": "16:9",
+      "duration": "5"
+    }
+  }'
+```
+
+```python Python
+import requests
+
+response = requests.post(
+    "https://api.muvi.video/v1/jobs/submit",
+    headers={
+        "Authorization": "Bearer YOUR_API_KEY",
+        "Content-Type": "application/json"
+    },
+    json={
+        "model": "runway/gen-4.5/text-to-video",
+        "input": {
+            "prompt": "A drone shot flying over a tropical beach at sunset with waves crashing on the shore",
+            "aspect_ratio": "16:9",
+            "duration": "5"
+        }
+    }
+)
+
+data = response.json()
+print(data)
+```
+
+```javascript JavaScript
+const response = await fetch("https://api.muvi.video/v1/jobs/submit", {
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    model: "runway/gen-4.5/text-to-video",
+    input: {
+      prompt: "A drone shot flying over a tropical beach at sunset with waves crashing on the shore",
+      aspect_ratio: "16:9",
+      duration: "5"
+    }
+  })
+});
+
+const data = await response.json();
+console.log(data);
+```
+
+</CodeGroup>
+
+---
+
+## Image to Video
+
+Generate videos from a source image and text prompt.
+
+**Slug:** `runway/gen-4.5/image-to-video`
+
+### Request Body
+
+<ParamField body="model" type="string" required placeholder="runway/gen-4.5/image-to-video">
+  Model slug. Use `runway/gen-4.5/image-to-video` for image-to-video generation.
+</ParamField>
+
+<ParamField body="input" type="object" required>
+  Input parameters for image-to-video generation.
+  <Expandable title="properties" defaultOpen>
+    <ParamField body="image_url" type="string" required>
+      URL of the source image to animate.
+    </ParamField>
+    <ParamField body="prompt" type="string">
+      Text description to guide video generation (max 5000 characters).
+    </ParamField>
+    <ParamField body="aspect_ratio" type="string">
+      Video aspect ratio. Default: `16:9`. Options: `16:9`, `9:16`, `1:1`, `4:3`, `3:4`, `21:9`.
+    </ParamField>
+    <ParamField body="duration" type="string">
+      Video duration in seconds. Default: `5`. Options: `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`.
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="webhookUrl" type="string">
+  HTTPS URL to receive a webhook notification when the job completes or fails.
+</ParamField>
+
+### Code Examples
+
+<CodeGroup>
+
+```bash cURL
+curl -X POST https://api.muvi.video/v1/jobs/submit \
+  -H "Authorization: Bearer $PIXELBYTE_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "runway/gen-4.5/image-to-video",
+    "input": {
+      "image_url": "https://example.com/beach.jpg",
+      "prompt": "The waves crash gently as the camera slowly pans across the shoreline",
+      "aspect_ratio": "16:9",
+      "duration": "5"
+    }
+  }'
+```
+
+```python Python
+import requests
+
+response = requests.post(
+    "https://api.muvi.video/v1/jobs/submit",
+    headers={
+        "Authorization": "Bearer YOUR_API_KEY",
+        "Content-Type": "application/json"
+    },
+    json={
+        "model": "runway/gen-4.5/image-to-video",
+        "input": {
+            "image_url": "https://example.com/beach.jpg",
+            "prompt": "The waves crash gently as the camera slowly pans across the shoreline",
+            "aspect_ratio": "16:9",
+            "duration": "5"
+        }
+    }
+)
+
+data = response.json()
+print(data)
+```
+
+```javascript JavaScript
+const response = await fetch("https://api.muvi.video/v1/jobs/submit", {
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    model: "runway/gen-4.5/image-to-video",
+    input: {
+      image_url: "https://example.com/beach.jpg",
+      prompt: "The waves crash gently as the camera slowly pans across the shoreline",
+      aspect_ratio: "16:9",
+      duration: "5"
+    }
+  })
+});
+
+const data = await response.json();
+console.log(data);
+```
+
+</CodeGroup>
+
+---
+
+## Pricing
+
+**Base cost:** 120,000 micro-cents per second ($0.12/sec)
+
+```
+finalCost = baseCost × duration
+```
+
+| Factor | Option | Multiplier |
+|--------|--------|-----------|
+| **Duration** | `2` | 2x |
+| | `3` | 3x |
+| | `4` | 4x |
+| | `5` | 5x |
+| | `6` | 6x |
+| | `7` | 7x |
+| | `8` | 8x |
+| | `9` | 9x |
+| | `10` | 10x |
+
+<Tip>
+**Default cost:** 5 seconds = 120,000 × 5 = **600,000 micro-cents ($0.60)**
+</Tip>
+
+## Response
+
+<ResponseField name="jobId" type="string">
+  Unique identifier for the submitted job.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Initial job status. Always `"pending"` on successful submission.
+</ResponseField>
+
+<ResponseField name="estimatedCompletionTime" type="string">
+  ISO 8601 timestamp of the estimated completion time.
+</ResponseField>
+
+<ResponseField name="costMicroCents" type="number">
+  The cost of the job in micro-cents.
+</ResponseField>
