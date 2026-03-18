@@ -1,0 +1,160 @@
+---
+title: "Kling 3.0 Standard — Start-End Frame to Video"
+api: "POST /v1/jobs/submit"
+description: "Generate videos from start and end frame images using Kling 3.0 Standard model"
+---
+
+Generate high-quality videos from start and end frame images with Kling 3.0 Standard. The model interpolates between the two frames to create smooth video transitions with optional audio generation.
+
+| Property | Value |
+|----------|-------|
+| **Provider** | Kling |
+| **Model** | Kling 3.0 Standard |
+| **Capability** | Start-End Frame to Video |
+| **Base Cost** | 84,000 micro-cents/second ($0.084/sec) |
+| **Processing Time** | ~240 seconds |
+
+## Request Body
+
+<ParamField body="model" type="string" required placeholder="kling/kling-3.0-standard/start-end-frame-to-video">
+  Model slug. Use `kling/kling-3.0-standard/start-end-frame-to-video` for start-end-frame-to-video generation.
+</ParamField>
+
+<ParamField body="input" type="object" required>
+  Input parameters for start-end-frame-to-video generation.
+  <Expandable title="properties" defaultOpen>
+    <ParamField body="prompt" type="string" required>
+      Text description of the video to generate (max 2500 characters).
+    </ParamField>
+    <ParamField body="start_frame_url" type="string" required>
+      URL of the start frame image.
+    </ParamField>
+    <ParamField body="end_frame_url" type="string" required>
+      URL of the end frame image.
+    </ParamField>
+    <ParamField body="aspect_ratio" type="string">
+      Video aspect ratio. Default: `16:9`. Options: `16:9`, `9:16`, `1:1`.
+    </ParamField>
+    <ParamField body="duration" type="string">
+      Video duration in seconds. Default: `5`. Options: `5`, `10`, `15`.
+    </ParamField>
+    <ParamField body="has_sound" type="string">
+      Enable audio generation. Default: `false`. Options: `true`, `false`.
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="webhookUrl" type="string">
+  HTTPS URL to receive a webhook notification when the job completes or fails.
+</ParamField>
+
+## Pricing
+
+**Base cost:** 84,000 micro-cents per second ($0.084/sec)
+
+```
+finalCost = baseCost × duration × has_sound
+```
+
+| Factor | Option | Multiplier |
+|--------|--------|-----------|
+| **Duration** | `5` | 5x |
+| | `10` | 10x |
+| | `15` | 15x |
+| **Sound** | `false` | 1x |
+| | `true` | 1.5x |
+
+<Tip>
+**Default cost:** 5 seconds, no sound = 84,000 × 5 × 1 = **420,000 micro-cents ($0.42)**
+</Tip>
+
+## Response
+
+<ResponseField name="jobId" type="string">
+  Unique identifier for the submitted job.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Initial job status. Always `"pending"` on successful submission.
+</ResponseField>
+
+<ResponseField name="estimatedCompletionTime" type="string">
+  ISO 8601 timestamp of the estimated completion time.
+</ResponseField>
+
+<ResponseField name="costMicroCents" type="number">
+  The cost of the job in micro-cents.
+</ResponseField>
+
+## Code Examples
+
+<CodeGroup>
+
+```bash cURL
+curl -X POST https://api.muvi.video/v1/jobs/submit \
+  -H "Authorization: Bearer $PIXELBYTE_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "kling/kling-3.0-standard/start-end-frame-to-video",
+    "input": {
+      "prompt": "A smooth transition from day to night in a city skyline",
+      "start_frame_url": "https://example.com/day-skyline.jpg",
+      "end_frame_url": "https://example.com/night-skyline.jpg",
+      "aspect_ratio": "16:9",
+      "duration": "5",
+      "has_sound": "false"
+    }
+  }'
+```
+
+```python Python
+import requests
+
+response = requests.post(
+    "https://api.muvi.video/v1/jobs/submit",
+    headers={
+        "Authorization": "Bearer YOUR_API_KEY",
+        "Content-Type": "application/json"
+    },
+    json={
+        "model": "kling/kling-3.0-standard/start-end-frame-to-video",
+        "input": {
+            "prompt": "A smooth transition from day to night in a city skyline",
+            "start_frame_url": "https://example.com/day-skyline.jpg",
+            "end_frame_url": "https://example.com/night-skyline.jpg",
+            "aspect_ratio": "16:9",
+            "duration": "5",
+            "has_sound": "false"
+        }
+    }
+)
+
+data = response.json()
+print(data)
+```
+
+```javascript JavaScript
+const response = await fetch("https://api.muvi.video/v1/jobs/submit", {
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    model: "kling/kling-3.0-standard/start-end-frame-to-video",
+    input: {
+      prompt: "A smooth transition from day to night in a city skyline",
+      start_frame_url: "https://example.com/day-skyline.jpg",
+      end_frame_url: "https://example.com/night-skyline.jpg",
+      aspect_ratio: "16:9",
+      duration: "5",
+      has_sound: "false"
+    }
+  })
+});
+
+const data = await response.json();
+console.log(data);
+```
+
+</CodeGroup>

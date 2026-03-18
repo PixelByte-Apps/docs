@@ -1,47 +1,33 @@
 ---
-title: "Kling 3.0 Standard"
+title: "Kling 3.0 Pro — Image to Video"
 api: "POST /v1/jobs/submit"
-description: "Generate videos with Kling 3.0 Standard — supports text-to-video, image-to-video, and start-end-frame-to-video"
+description: "Generate videos from images using Kling 3.0 Pro model"
 ---
 
-Generate high-quality videos with Kling 3.0 Standard. Supports text-to-video, image-to-video, and start-end-frame-to-video capabilities with optional audio generation.
+Generate high-quality videos from an image and text prompt with Kling 3.0 Pro. Supports multiple aspect ratios, durations, and optional audio generation.
 
 | Property | Value |
 |----------|-------|
 | **Provider** | Kling |
-| **Model** | Kling 3.0 Standard |
-| **Capabilities** | Text to Video, Image to Video, Start-End Frame to Video |
-| **Base Cost** | 84,000 micro-cents/second ($0.084/sec) |
+| **Model** | Kling 3.0 Pro |
+| **Capability** | Image to Video |
+| **Base Cost** | 112,000 micro-cents/second ($0.112/sec) |
 | **Processing Time** | ~240 seconds |
-
-## Model Slugs
-
-| Capability | Slug |
-|------------|------|
-| Text to Video | `kling/kling-3.0-standard/text-to-video` |
-| Image to Video | `kling/kling-3.0-standard/image-to-video` |
-| Start-End Frame to Video | `kling/kling-3.0-standard/start-end-frame-to-video` |
 
 ## Request Body
 
-<ParamField body="model" type="string" required placeholder="kling/kling-3.0-standard/text-to-video">
-  Model slug. Use one of the slugs listed above based on the desired capability.
+<ParamField body="model" type="string" required placeholder="kling/kling-3.0-pro/image-to-video">
+  Model slug. Use `kling/kling-3.0-pro/image-to-video` for image-to-video generation.
 </ParamField>
 
 <ParamField body="input" type="object" required>
-  Input parameters for video generation.
+  Input parameters for image-to-video generation.
   <Expandable title="properties" defaultOpen>
     <ParamField body="prompt" type="string" required>
       Text description of the video to generate (max 2500 characters).
     </ParamField>
-    <ParamField body="image_url" type="string">
-      URL of the input image. **Required** for `image-to-video`.
-    </ParamField>
-    <ParamField body="start_frame_url" type="string">
-      URL of the start frame image. **Required** for `start-end-frame-to-video`.
-    </ParamField>
-    <ParamField body="end_frame_url" type="string">
-      URL of the end frame image. **Required** for `start-end-frame-to-video`.
+    <ParamField body="image_url" type="string" required>
+      URL of the input image to animate.
     </ParamField>
     <ParamField body="aspect_ratio" type="string">
       Video aspect ratio. Default: `16:9`. Options: `16:9`, `9:16`, `1:1`.
@@ -61,7 +47,7 @@ Generate high-quality videos with Kling 3.0 Standard. Supports text-to-video, im
 
 ## Pricing
 
-**Base cost:** 84,000 micro-cents per second ($0.084/sec)
+**Base cost:** 112,000 micro-cents per second ($0.112/sec)
 
 ```
 finalCost = baseCost × duration × has_sound
@@ -76,7 +62,7 @@ finalCost = baseCost × duration × has_sound
 | | `true` | 1.5x |
 
 <Tip>
-**Default cost:** 5 seconds, no sound = 84,000 × 5 × 1 = **420,000 micro-cents ($0.42)**
+**Default cost:** 5 seconds, no sound = 112,000 × 5 × 1 = **560,000 micro-cents ($0.56)**
 </Tip>
 
 ## Response
@@ -106,12 +92,13 @@ curl -X POST https://api.muvi.video/v1/jobs/submit \
   -H "Authorization: Bearer $PIXELBYTE_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "kling/kling-3.0-standard/text-to-video",
+    "model": "kling/kling-3.0-pro/image-to-video",
     "input": {
-      "prompt": "A golden retriever running through a sunlit meadow",
+      "prompt": "The dog starts running and jumps over a fence",
+      "image_url": "https://example.com/dog.jpg",
       "aspect_ratio": "16:9",
       "duration": "5",
-      "has_sound": "true"
+      "has_sound": "false"
     }
   }'
 ```
@@ -126,12 +113,13 @@ response = requests.post(
         "Content-Type": "application/json"
     },
     json={
-        "model": "kling/kling-3.0-standard/text-to-video",
+        "model": "kling/kling-3.0-pro/image-to-video",
         "input": {
-            "prompt": "A golden retriever running through a sunlit meadow",
+            "prompt": "The dog starts running and jumps over a fence",
+            "image_url": "https://example.com/dog.jpg",
             "aspect_ratio": "16:9",
             "duration": "5",
-            "has_sound": "true"
+            "has_sound": "false"
         }
     }
 )
@@ -148,12 +136,13 @@ const response = await fetch("https://api.muvi.video/v1/jobs/submit", {
     "Content-Type": "application/json"
   },
   body: JSON.stringify({
-    model: "kling/kling-3.0-standard/text-to-video",
+    model: "kling/kling-3.0-pro/image-to-video",
     input: {
-      prompt: "A golden retriever running through a sunlit meadow",
+      prompt: "The dog starts running and jumps over a fence",
+      image_url: "https://example.com/dog.jpg",
       aspect_ratio: "16:9",
       duration: "5",
-      has_sound: "true"
+      has_sound: "false"
     }
   })
 });

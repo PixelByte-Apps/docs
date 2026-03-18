@@ -112,7 +112,9 @@
               {
                 "group": "Veo 3.1",
                 "pages": [
-                  "models/video/google/veo-3-1"
+                  "models/video/google/veo-3-1-text-to-video",
+                  "models/video/google/veo-3-1-image-to-video",
+                  "models/video/google/veo-3-1-reference-to-video"
                 ]
               }
             ]
@@ -123,13 +125,15 @@
               {
                 "group": "Sora 2",
                 "pages": [
-                  "models/video/openai/sora-2"
+                  "models/video/openai/sora-2-text-to-video",
+                  "models/video/openai/sora-2-image-to-video"
                 ]
               },
               {
                 "group": "Sora 2 Pro",
                 "pages": [
-                  "models/video/openai/sora-2-pro"
+                  "models/video/openai/sora-2-pro-text-to-video",
+                  "models/video/openai/sora-2-pro-image-to-video"
                 ]
               }
             ]
@@ -140,7 +144,8 @@
               {
                 "group": "Gen 4.5",
                 "pages": [
-                  "models/video/runway/gen-4-5"
+                  "models/video/runway/gen-4-5-text-to-video",
+                  "models/video/runway/gen-4-5-image-to-video"
                 ]
               },
               {
@@ -163,19 +168,24 @@
               {
                 "group": "Kling 3.0 Pro",
                 "pages": [
-                  "models/video/kling/kling-3-0-pro"
+                  "models/video/kling/kling-3-0-pro-text-to-video",
+                  "models/video/kling/kling-3-0-pro-image-to-video",
+                  "models/video/kling/kling-3-0-pro-start-end-frame-to-video"
                 ]
               },
               {
                 "group": "Kling 3.0 Standard",
                 "pages": [
-                  "models/video/kling/kling-3-0-standard"
+                  "models/video/kling/kling-3-0-standard-text-to-video",
+                  "models/video/kling/kling-3-0-standard-image-to-video",
+                  "models/video/kling/kling-3-0-standard-start-end-frame-to-video"
                 ]
               },
               {
                 "group": "Kling 2.6 Pro",
                 "pages": [
-                  "models/video/kling/kling-2-6-pro"
+                  "models/video/kling/kling-2-6-pro-text-to-video",
+                  "models/video/kling/kling-2-6-pro-image-to-video"
                 ]
               },
               {
@@ -231,7 +241,8 @@
               {
                 "group": "Nano Banana 2",
                 "pages": [
-                  "models/image/google/nano-banana-2"
+                  "models/image/google/nano-banana-2-text-to-image",
+                  "models/image/google/nano-banana-2-edit-image"
                 ]
               },
               {
@@ -248,13 +259,15 @@
               {
                 "group": "GPT Image 1.5",
                 "pages": [
-                  "models/image/openai/gpt-image-1-5"
+                  "models/image/openai/gpt-image-1-5-text-to-image",
+                  "models/image/openai/gpt-image-1-5-edit-image"
                 ]
               },
               {
                 "group": "GPT Image 1 Mini",
                 "pages": [
-                  "models/image/openai/gpt-image-1-mini"
+                  "models/image/openai/gpt-image-1-mini-text-to-image",
+                  "models/image/openai/gpt-image-1-mini-edit-image"
                 ]
               }
             ]
@@ -265,7 +278,8 @@
               {
                 "group": "Seedream 5",
                 "pages": [
-                  "models/image/seedance/seedream-5"
+                  "models/image/seedance/seedream-5-text-to-image",
+                  "models/image/seedance/seedream-5-edit-image"
                 ]
               }
             ]
@@ -276,7 +290,8 @@
               {
                 "group": "Gen 4 Image",
                 "pages": [
-                  "models/image/runway/gen-4-image"
+                  "models/image/runway/gen-4-image-text-to-image",
+                  "models/image/runway/gen-4-image-edit-image"
                 ]
               },
               {
