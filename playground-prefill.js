@@ -32,6 +32,8 @@
     'kling-3-0-standard-text-to-video': 'kling/kling-3.0-standard/text-to-video',
     'kling-3-0-standard-image-to-video': 'kling/kling-3.0-standard/image-to-video',
     'kling-3-0-standard-start-end-frame-to-video': 'kling/kling-3.0-standard/start-end-frame-to-video',
+    'kling-3-0-pro-motion-control': 'kling/kling-3.0-pro/motion-control',
+    'kling-3-0-standard-motion-control': 'kling/kling-3.0-standard/motion-control',
     'kling-2-6-pro-text-to-video': 'kling/kling-2.6-pro/text-to-video',
     'kling-2-6-pro-image-to-video': 'kling/kling-2.6-pro/image-to-video',
     'kling-2-6-i2v-image-to-video': 'kling/kling-2.6-i2v/image-to-video',
