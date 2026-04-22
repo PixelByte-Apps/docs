@@ -40,6 +40,11 @@
 
     // --- Wan ---
     'wan-2-6-flash-image-to-video': 'alibaba/wan-2.6-flash/image-to-video',
+    'wan-2-6-super-image-to-video': 'alibaba-plus/wan-2.6-super/image-to-video',
+
+    // --- Seedance ---
+    'seedance-1-5-pro-super-image-to-video': 'bytedance-plus/seedance-1.5-pro-super/image-to-video',
+    'seedance-1-5-pro-super-start-end-frame-to-video': 'bytedance-plus/seedance-1.5-pro-super/start-end-frame-to-video',
 
     // --- GPT Image ---
     'gpt-image-1-5-text-to-image': 'openai/gpt-image-1.5/text-to-image',
@@ -54,7 +59,11 @@
     // --- Gen 4 Image (Runway) ---
     'gen-4-image-text-to-image': 'runway/gen-4-image/text-to-image',
     'gen-4-image-edit-image': 'runway/gen-4-image/edit-image',
-    'gen-4-turbo-image-edit-image': 'runway/gen-4-turbo-image/edit-image'
+    'gen-4-turbo-image-edit-image': 'runway/gen-4-turbo-image/edit-image',
+
+    // --- Veo 3.1 (EachLabs) ---
+    'veo-3-1-eachlabs-image-to-video': 'google/veo-3.1-eachlabs/image-to-video',
+    'veo-3-1-eachlabs-start-end-frame-to-video': 'google/veo-3.1-eachlabs/start-end-frame-to-video'
   };
 
   function getModelSlug() {
