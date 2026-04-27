@@ -1,0 +1,160 @@
+---
+title: "Veo 3.1 (ECL) — Image to Video"
+api: "POST /v1/jobs/submit"
+description: "Animate a still image into video using Google's Veo 3.1 (ECL) variant via PixelByte API"
+---
+
+Animate a still image into a high-quality video clip with Google's Veo 3.1 (ECL) variant. Supports multiple durations, resolutions, and optional audio generation.
+
+| Property | Value |
+|----------|-------|
+| **Provider** | Google |
+| **Model** | Veo 3.1 (ECL) |
+| **Capability** | Image to Video |
+| **Base Cost** | 200,000 micro-cents/second ($0.20/sec) |
+| **Processing Time** | ~85 seconds |
+
+## Request Body
+
+<ParamField body="model" type="string" required placeholder="google/veo-3.1-ecl/image-to-video">
+  Model slug. Use `google/veo-3.1-ecl/image-to-video` for image-to-video generation.
+</ParamField>
+
+<ParamField body="input" type="object" required>
+  Input parameters for image-to-video generation.
+  <Expandable title="properties" defaultOpen>
+    <ParamField body="prompt" type="string" required>
+      Text description guiding the motion (max 4000 characters).
+    </ParamField>
+    <ParamField body="image_url" type="string" required>
+      URL of the input image to animate.
+    </ParamField>
+    <ParamField body="aspect_ratio" type="string">
+      Video aspect ratio. Default: `16:9`. Options: `16:9`, `9:16`.
+    </ParamField>
+    <ParamField body="duration" type="string">
+      Video duration in seconds. Default: `4`. Options: `4`, `6`, `8`. Affects pricing.
+    </ParamField>
+    <ParamField body="has_sound" type="string">
+      Generate audio. Default: `false`. Options: `true`, `false`. Affects pricing.
+    </ParamField>
+    <ParamField body="resolution" type="string">
+      Output resolution. Default: `720p`. Options: `720p`, `1080p`, `4k`.
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="webhookUrl" type="string">
+  HTTPS URL to receive a webhook notification when the job completes or fails.
+</ParamField>
+
+## Pricing
+
+**Base cost:** 200,000 micro-cents per second ($0.20/sec)
+
+```
+finalCost = baseCost × duration × has_sound
+```
+
+| Factor | Option | Multiplier |
+|--------|--------|-----------|
+| **Duration** | `4` | 4x |
+| | `6` | 6x |
+| | `8` | 8x |
+| **Sound** | `false` | 1x |
+| | `true` | 1.5x |
+
+<Tip>
+**Default cost:** 4 seconds, no sound = 200,000 × 4 × 1 = **800,000 micro-cents ($0.80)**
+</Tip>
+
+## Response
+
+<ResponseField name="jobId" type="string">
+  Unique identifier for the submitted job.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Initial job status. Always `"pending"` on successful submission.
+</ResponseField>
+
+<ResponseField name="estimatedCompletionTime" type="string">
+  ISO 8601 timestamp of the estimated completion time.
+</ResponseField>
+
+<ResponseField name="costMicroCents" type="number">
+  The cost of the job in micro-cents.
+</ResponseField>
+
+## Code Examples
+
+<CodeGroup>
+
+```bash cURL
+curl -X POST https://api.muvi.video/v1/jobs/submit \
+  -H "Authorization: Bearer $PIXELBYTE_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "google/veo-3.1-ecl/image-to-video",
+    "input": {
+      "prompt": "A timelapse of clouds moving over mountains",
+      "image_url": "https://example.com/image.jpg",
+      "aspect_ratio": "16:9",
+      "duration": "4",
+      "has_sound": "false",
+      "resolution": "720p"
+    }
+  }'
+```
+
+```python Python
+import requests
+
+response = requests.post(
+    "https://api.muvi.video/v1/jobs/submit",
+    headers={
+        "Authorization": "Bearer YOUR_API_KEY",
+        "Content-Type": "application/json"
+    },
+    json={
+        "model": "google/veo-3.1-ecl/image-to-video",
+        "input": {
+            "prompt": "A timelapse of clouds moving over mountains",
+            "image_url": "https://example.com/image.jpg",
+            "aspect_ratio": "16:9",
+            "duration": "4",
+            "has_sound": "false",
+            "resolution": "720p"
+        }
+    }
+)
+
+data = response.json()
+print(data)
+```
+
+```javascript JavaScript
+const response = await fetch("https://api.muvi.video/v1/jobs/submit", {
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    model: "google/veo-3.1-ecl/image-to-video",
+    input: {
+      prompt: "A timelapse of clouds moving over mountains",
+      image_url: "https://example.com/image.jpg",
+      aspect_ratio: "16:9",
+      duration: "4",
+      has_sound: "false",
+      resolution: "720p"
+    }
+  })
+});
+
+const data = await response.json();
+console.log(data);
+```
+
+</CodeGroup>

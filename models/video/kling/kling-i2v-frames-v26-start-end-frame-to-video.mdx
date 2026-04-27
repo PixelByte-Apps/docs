@@ -1,0 +1,159 @@
+---
+title: "Kling 2.6 — Start-End Frame to Video"
+api: "POST /v1/jobs/submit"
+description: "Generate videos that interpolate between a start and end frame using Kling 2.6"
+---
+
+Generate a smooth video that transitions from a start frame to an end frame with Kling 2.6. Ideal for controlled keyframe animation, morphing transitions, and creative storytelling.
+
+| Property | Value |
+|----------|-------|
+| **Provider** | Kling |
+| **Model** | Kling 2.6 |
+| **Capability** | Start-End Frame to Video |
+| **Base Cost** | 60,000 micro-cents/second ($0.06/sec) |
+| **Processing Time** | ~240 seconds |
+
+## Request Body
+
+<ParamField body="model" type="string" required placeholder="kling/kling-i2v-frames-v26/start-end-frame-to-video">
+  Model slug. Use `kling/kling-i2v-frames-v26/start-end-frame-to-video`.
+</ParamField>
+
+<ParamField body="input" type="object" required>
+  Input parameters for start-end frame video generation.
+  <Expandable title="properties" defaultOpen>
+    <ParamField body="prompt" type="string" required>
+      Text description guiding the transition (max 2500 characters).
+    </ParamField>
+    <ParamField body="start_frame_url" type="string" required>
+      URL of the start frame image.
+    </ParamField>
+    <ParamField body="end_frame_url" type="string" required>
+      URL of the end frame image.
+    </ParamField>
+    <ParamField body="quality" type="string">
+      Generation quality. Default: `std`. Options: `std`, `pro`.
+    </ParamField>
+    <ParamField body="duration" type="string">
+      Video duration in seconds. Default: `5`. Options: `5`, `10`.
+    </ParamField>
+    <ParamField body="aspect_ratio" type="string">
+      Video aspect ratio. Default: `16:9`. Options: `16:9`, `9:16`, `1:1`.
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="webhookUrl" type="string">
+  HTTPS URL to receive a webhook notification when the job completes or fails.
+</ParamField>
+
+## Pricing
+
+**Base cost:** 60,000 micro-cents per second ($0.06/sec)
+
+```
+finalCost = baseCost × quality × duration
+```
+
+| Factor | Option | Multiplier |
+|--------|--------|-----------|
+| **Quality** | `std` | 1x |
+| | `pro` | 1.5x |
+| **Duration** | `5` | 5x |
+| | `10` | 10x |
+
+<Tip>
+**Default cost:** std quality, 5 seconds = 60,000 × 1 × 5 = **300,000 micro-cents ($0.30)**
+</Tip>
+
+## Response
+
+<ResponseField name="jobId" type="string">
+  Unique identifier for the submitted job.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Initial job status. Always `"pending"` on successful submission.
+</ResponseField>
+
+<ResponseField name="estimatedCompletionTime" type="string">
+  ISO 8601 timestamp of the estimated completion time.
+</ResponseField>
+
+<ResponseField name="costMicroCents" type="number">
+  The cost of the job in micro-cents.
+</ResponseField>
+
+## Code Examples
+
+<CodeGroup>
+
+```bash cURL
+curl -X POST https://api.muvi.video/v1/jobs/submit \
+  -H "Authorization: Bearer $PIXELBYTE_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "kling/kling-i2v-frames-v26/start-end-frame-to-video",
+    "input": {
+      "prompt": "A snowy mountain peak slowly transforms into a green spring valley",
+      "start_frame_url": "https://example.com/image.jpg",
+      "end_frame_url": "https://example.com/image.jpg",
+      "quality": "std",
+      "duration": "5",
+      "aspect_ratio": "16:9"
+    }
+  }'
+```
+
+```python Python
+import requests
+
+response = requests.post(
+    "https://api.muvi.video/v1/jobs/submit",
+    headers={
+        "Authorization": "Bearer YOUR_API_KEY",
+        "Content-Type": "application/json"
+    },
+    json={
+        "model": "kling/kling-i2v-frames-v26/start-end-frame-to-video",
+        "input": {
+            "prompt": "A snowy mountain peak slowly transforms into a green spring valley",
+            "start_frame_url": "https://example.com/image.jpg",
+            "end_frame_url": "https://example.com/image.jpg",
+            "quality": "std",
+            "duration": "5",
+            "aspect_ratio": "16:9"
+        }
+    }
+)
+
+data = response.json()
+print(data)
+```
+
+```javascript JavaScript
+const response = await fetch("https://api.muvi.video/v1/jobs/submit", {
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    model: "kling/kling-i2v-frames-v26/start-end-frame-to-video",
+    input: {
+      prompt: "A snowy mountain peak slowly transforms into a green spring valley",
+      start_frame_url: "https://example.com/image.jpg",
+      end_frame_url: "https://example.com/image.jpg",
+      quality: "std",
+      duration: "5",
+      aspect_ratio: "16:9"
+    }
+  })
+});
+
+const data = await response.json();
+console.log(data);
+```
+
+</CodeGroup>

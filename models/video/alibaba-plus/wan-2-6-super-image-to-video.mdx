@@ -1,0 +1,148 @@
+---
+title: "Wan 2.6 Super — Image to Video"
+api: "POST /v1/jobs/submit"
+description: "Generate image to video outputs using Alibaba+'s Wan 2.6 Super model via PixelByte API"
+---
+
+Generate image to video outputs with Alibaba+'s Wan 2.6 Super model. Submitted as an asynchronous job and delivered via webhook or polling.
+
+| Property | Value |
+|----------|-------|
+| **Provider** | Alibaba+ |
+| **Model** | Wan 2.6 Super |
+| **Capability** | Image to Video |
+| **Base Cost** | 100,000 micro-cents/second ($0.10/sec) |
+| **Processing Time** | ~300 seconds |
+
+## Request Body
+
+<ParamField body="model" type="string" required placeholder="alibaba-plus/wan-2.6-super/image-to-video">
+  Model slug. Use `alibaba-plus/wan-2.6-super/image-to-video` for image to video generation.
+</ParamField>
+
+<ParamField body="input" type="object" required>
+  Input parameters for image to video generation.
+  <Expandable title="properties" defaultOpen>
+    <ParamField body="image_url" type="string" required>
+      URL of the input image to use as reference.
+    </ParamField>
+    <ParamField body="prompt" type="string">
+      Text description of the video to generate (max 2500 characters).
+    </ParamField>
+    <ParamField body="resolution" type="string">
+      Output resolution. Default: `"720p"`. Options: `720p`, `1080p`.
+    </ParamField>
+    <ParamField body="duration" type="string">
+      Video duration in seconds. Default: `"5"`. Options: `5`, `10`, `15`.
+    </ParamField>
+    <ParamField body="negative_prompt" type="string">
+      Text describing elements you want to avoid in the output (max 1000 characters).
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="webhookUrl" type="string">
+  HTTPS URL to receive a webhook notification when the job completes or fails.
+</ParamField>
+
+## Pricing
+
+**Base cost:** 100,000 micro-cents per second ($0.10/sec)
+
+```
+finalCost = baseCost × resolution × duration
+```
+
+| Factor | Option | Multiplier |
+|--------|--------|-----------|
+| **Resolution** | `1080p` | 1.5x |
+|  | `720p` | 1x |
+| **Duration** | `5` | 5x |
+|  | `10` | 10x |
+|  | `15` | 15x |
+
+<Tip>
+**Default cost:** 720p resolution, 5 duration = 100,000 × 1 × 5 = **500,000 micro-cents ($0.50)**
+</Tip>
+
+## Response
+
+<ResponseField name="jobId" type="string">
+  Unique identifier for the submitted job.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Initial job status. Always `"pending"` on successful submission.
+</ResponseField>
+
+<ResponseField name="estimatedCompletionTime" type="string">
+  ISO 8601 timestamp of the estimated completion time.
+</ResponseField>
+
+<ResponseField name="costMicroCents" type="number">
+  The cost of the job in micro-cents.
+</ResponseField>
+
+## Code Examples
+
+<CodeGroup>
+
+```bash cURL
+curl -X POST https://api.muvi.video/v1/jobs/submit \
+  -H "Authorization: Bearer $PIXELBYTE_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "alibaba-plus/wan-2.6-super/image-to-video",
+    "input": {
+      "image_url": "https://example.com/image.jpg",
+      "resolution": "720p",
+      "duration": "5"
+    }
+  }'
+```
+
+```python Python
+import requests
+
+response = requests.post(
+    "https://api.muvi.video/v1/jobs/submit",
+    headers={
+        "Authorization": "Bearer YOUR_API_KEY",
+        "Content-Type": "application/json"
+    },
+    json={
+        "model": "alibaba-plus/wan-2.6-super/image-to-video",
+        "input": {
+            "image_url": "https://example.com/image.jpg",
+            "resolution": "720p",
+            "duration": "5"
+        }
+    }
+)
+
+data = response.json()
+print(data)
+```
+
+```javascript JavaScript
+const response = await fetch("https://api.muvi.video/v1/jobs/submit", {
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    model: "alibaba-plus/wan-2.6-super/image-to-video",
+    input: {
+      image_url: "https://example.com/image.jpg",
+      resolution: "720p",
+      duration: "5"
+    }
+  })
+});
+
+const data = await response.json();
+console.log(data);
+```
+
+</CodeGroup>

@@ -1,0 +1,151 @@
+---
+title: "Kling 3.0 Standard — Motion Control"
+api: "POST /v1/jobs/submit"
+description: "Generate motion control using Kling 3.0 Standard via PixelByte API"
+---
+
+Transfer the motion from a reference video to a still image using Kling 3.0 Standard, producing a character-controlled animated video.
+
+| Property | Value |
+|----------|-------|
+| **Provider** | Kling Plus |
+| **Model** | Kling 3.0 Standard |
+| **Capability** | Motion Control |
+| **Base Cost** | 30,000 micro-cents/second ($0.03/second) |
+| **Processing Time** | ~180 seconds |
+
+## Request Body
+
+<ParamField body="model" type="string" required placeholder="kling-plus/kling-3.0-standard/motion-control">
+  Model slug. Use `kling-plus/kling-3.0-standard/motion-control` for motion control generation.
+</ParamField>
+
+<ParamField body="input" type="object" required>
+  Input parameters for motion control generation.
+  <Expandable title="properties" defaultOpen>
+    <ParamField body="image" type="string" required>
+      Reference image (JPG/PNG, max 10MB, min 300px).
+    </ParamField>
+    <ParamField body="video" type="string" required>
+      Motion reference video (3-30 seconds).
+    </ParamField>
+    <ParamField body="prompt" type="string">
+      Text description of the video to generate. max 1000 characters.
+    </ParamField>
+    <ParamField body="negative_prompt" type="string">
+      Negative prompt to discourage unwanted elements. max 1000 characters.
+    </ParamField>
+    <ParamField body="character_orientation" type="string">
+      Character orientation reference. Options: `image`, `video`.
+    </ParamField>
+    <ParamField body="keep_original_sound" type="boolean">
+      Retain original video sound. Default: `true`.
+    </ParamField>
+    <ParamField body="shot_type" type="string">
+      Camera shot composition mode. Options: `customize`, `intelligent`. Default: `customize`.
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="webhookUrl" type="string">
+  HTTPS URL to receive a webhook notification when the job completes or fails.
+</ParamField>
+
+## Pricing
+
+**Base cost:** 30,000 micro-cents per second ($0.03/second)
+
+```
+finalCost = baseCost
+```
+
+This model uses a flat per-job base cost.
+
+<Tip>
+**Default cost:** Flat = **30,000 micro-cents ($0.03)**
+</Tip>
+
+## Response
+
+<ResponseField name="jobId" type="string">
+  Unique identifier for the submitted job.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Initial job status. Always `"pending"` on successful submission.
+</ResponseField>
+
+<ResponseField name="estimatedCompletionTime" type="string">
+  ISO 8601 timestamp of the estimated completion time.
+</ResponseField>
+
+<ResponseField name="costMicroCents" type="number">
+  The cost of the job in micro-cents.
+</ResponseField>
+
+## Code Examples
+
+<CodeGroup>
+
+```bash cURL
+curl -X POST https://api.muvi.video/v1/jobs/submit \
+  -H "Authorization: Bearer $PIXELBYTE_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "kling-plus/kling-3.0-standard/motion-control",
+    "input": {
+      "image": "https://example.com/image.jpg",
+      "video": "https://example.com/reference.mp4",
+      "prompt": "A dancer moves gracefully following the reference choreography, vibrant studio lighting.",
+      "character_orientation": "image"
+    }
+  }'
+```
+
+```python Python
+import requests
+
+response = requests.post(
+    "https://api.muvi.video/v1/jobs/submit",
+    headers={
+        "Authorization": "Bearer YOUR_API_KEY",
+        "Content-Type": "application/json"
+    },
+    json={
+        "model": "kling-plus/kling-3.0-standard/motion-control",
+        "input": {
+            "image": "https://example.com/image.jpg",
+            "video": "https://example.com/reference.mp4",
+            "prompt": "A dancer moves gracefully following the reference choreography, vibrant studio lighting.",
+            "character_orientation": "image"
+        }
+    }
+)
+
+data = response.json()
+print(data)
+```
+
+```javascript JavaScript
+const response = await fetch("https://api.muvi.video/v1/jobs/submit", {
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    model: "kling-plus/kling-3.0-standard/motion-control",
+    input: {
+      image: "https://example.com/image.jpg",
+      video: "https://example.com/reference.mp4",
+      prompt: "A dancer moves gracefully following the reference choreography, vibrant studio lighting.",
+      character_orientation: "image"
+    }
+  })
+});
+
+const data = await response.json();
+console.log(data);
+```
+
+</CodeGroup>

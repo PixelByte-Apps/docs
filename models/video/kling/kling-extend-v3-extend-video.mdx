@@ -1,0 +1,153 @@
+---
+title: "Kling Extend 3.0 — Extend Video"
+api: "POST /v1/jobs/submit"
+description: "Extend an existing video using Kling Extend 3.0 via PixelByte API"
+---
+
+Continue an existing video by generating new footage that follows on from the source clip with Kling Extend 3.0. Supports std/pro quality tiers and 5- or 10-second extensions.
+
+| Property | Value |
+|----------|-------|
+| **Provider** | Kling |
+| **Model** | Kling Extend 3.0 |
+| **Capability** | Extend Video |
+| **Base Cost** | 70,000 micro-cents/second ($0.07/sec) |
+| **Processing Time** | ~240 seconds |
+
+## Request Body
+
+<ParamField body="model" type="string" required placeholder="kling/kling-extend-v3/extend-video">
+  Model slug. Use `kling/kling-extend-v3/extend-video`.
+</ParamField>
+
+<ParamField body="input" type="object" required>
+  Input parameters for video extension.
+  <Expandable title="properties" defaultOpen>
+    <ParamField body="video_url" type="string" required>
+      URL of the source video to extend.
+    </ParamField>
+    <ParamField body="work_id" type="string">
+      Optional identifier of an existing Kling work to extend.
+    </ParamField>
+    <ParamField body="prompt" type="string">
+      Text description guiding the extension (max 2500 characters).
+    </ParamField>
+    <ParamField body="negative_prompt" type="string">
+      Text describing content to avoid (max 1000 characters).
+    </ParamField>
+    <ParamField body="quality" type="string">
+      Generation quality. Default: `std`. Options: `std`, `pro`.
+    </ParamField>
+    <ParamField body="duration" type="string">
+      Extension duration in seconds. Default: `5`. Options: `5`, `10`.
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="webhookUrl" type="string">
+  HTTPS URL to receive a webhook notification when the job completes or fails.
+</ParamField>
+
+## Pricing
+
+**Base cost:** 70,000 micro-cents per second ($0.07/sec)
+
+```
+finalCost = baseCost × duration × quality
+```
+
+| Factor | Option | Multiplier |
+|--------|--------|-----------|
+| **Duration** | `5` | 5x |
+| | `10` | 10x |
+| **Quality** | `std` | 1x |
+| | `pro` | 1.5x |
+
+<Tip>
+**Default cost:** 5 seconds, std quality = 70,000 × 5 × 1 = **350,000 micro-cents ($0.35)**
+</Tip>
+
+## Response
+
+<ResponseField name="jobId" type="string">
+  Unique identifier for the submitted job.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Initial job status. Always `"pending"` on successful submission.
+</ResponseField>
+
+<ResponseField name="estimatedCompletionTime" type="string">
+  ISO 8601 timestamp of the estimated completion time.
+</ResponseField>
+
+<ResponseField name="costMicroCents" type="number">
+  The cost of the job in micro-cents.
+</ResponseField>
+
+## Code Examples
+
+<CodeGroup>
+
+```bash cURL
+curl -X POST https://api.muvi.video/v1/jobs/submit \
+  -H "Authorization: Bearer $PIXELBYTE_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "kling/kling-extend-v3/extend-video",
+    "input": {
+      "video_url": "https://example.com/video.mp4",
+      "prompt": "The character keeps walking forward into the open square",
+      "quality": "std",
+      "duration": "5"
+    }
+  }'
+```
+
+```python Python
+import requests
+
+response = requests.post(
+    "https://api.muvi.video/v1/jobs/submit",
+    headers={
+        "Authorization": "Bearer YOUR_API_KEY",
+        "Content-Type": "application/json"
+    },
+    json={
+        "model": "kling/kling-extend-v3/extend-video",
+        "input": {
+            "video_url": "https://example.com/video.mp4",
+            "prompt": "The character keeps walking forward into the open square",
+            "quality": "std",
+            "duration": "5"
+        }
+    }
+)
+
+data = response.json()
+print(data)
+```
+
+```javascript JavaScript
+const response = await fetch("https://api.muvi.video/v1/jobs/submit", {
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    model: "kling/kling-extend-v3/extend-video",
+    input: {
+      video_url: "https://example.com/video.mp4",
+      prompt: "The character keeps walking forward into the open square",
+      quality: "std",
+      duration: "5"
+    }
+  })
+});
+
+const data = await response.json();
+console.log(data);
+```
+
+</CodeGroup>

@@ -1,0 +1,149 @@
+---
+title: "Wan 2.6 — Video Extend"
+api: "POST /v1/jobs/submit"
+description: "Generate video extend outputs using Alibaba+'s Wan 2.6 model via PixelByte API"
+---
+
+Generate video extend outputs with Alibaba+'s Wan 2.6 model. Submitted as an asynchronous job and delivered via webhook or polling.
+
+| Property | Value |
+|----------|-------|
+| **Provider** | Alibaba+ |
+| **Model** | Wan 2.6 |
+| **Capability** | Video Extend |
+| **Base Cost** | 150,000 micro-cents/second ($0.15/sec) |
+| **Processing Time** | ~300 seconds |
+
+## Request Body
+
+<ParamField body="model" type="string" required placeholder="alibaba-plus/wan-2.6/video-extend">
+  Model slug. Use `alibaba-plus/wan-2.6/video-extend` for video extend generation.
+</ParamField>
+
+<ParamField body="input" type="object" required>
+  Input parameters for video extend generation.
+  <Expandable title="properties" defaultOpen>
+    <ParamField body="prompt" type="string" required>
+      Text description of the video to generate (max 2500 characters).
+    </ParamField>
+    <ParamField body="video_url" type="string" required>
+      Video URL to extend.
+    </ParamField>
+    <ParamField body="resolution" type="string">
+      Output resolution. Default: `"720p"`. Options: `720p`, `1080p`.
+    </ParamField>
+    <ParamField body="negative_prompt" type="string">
+      Text describing elements you want to avoid in the output (max 1000 characters).
+    </ParamField>
+    <ParamField body="duration" type="string">
+      Video duration in seconds. Default: `"5"`. Options: `5`, `10`, `15`.
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="webhookUrl" type="string">
+  HTTPS URL to receive a webhook notification when the job completes or fails.
+</ParamField>
+
+## Pricing
+
+**Base cost:** 150,000 micro-cents per second ($0.15/sec)
+
+```
+finalCost = baseCost × duration
+```
+
+| Factor | Option | Multiplier |
+|--------|--------|-----------|
+| **Duration** | `5` | 5x |
+|  | `10` | 10x |
+|  | `15` | 15x |
+
+<Tip>
+**Default cost:** 5 duration = 150,000 × 5 = **750,000 micro-cents ($0.75)**
+</Tip>
+
+## Response
+
+<ResponseField name="jobId" type="string">
+  Unique identifier for the submitted job.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Initial job status. Always `"pending"` on successful submission.
+</ResponseField>
+
+<ResponseField name="estimatedCompletionTime" type="string">
+  ISO 8601 timestamp of the estimated completion time.
+</ResponseField>
+
+<ResponseField name="costMicroCents" type="number">
+  The cost of the job in micro-cents.
+</ResponseField>
+
+## Code Examples
+
+<CodeGroup>
+
+```bash cURL
+curl -X POST https://api.muvi.video/v1/jobs/submit \
+  -H "Authorization: Bearer $PIXELBYTE_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "alibaba-plus/wan-2.6/video-extend",
+    "input": {
+      "prompt": "A serene lake at sunrise with mist rolling over the water",
+      "video_url": "https://example.com/video.mp4",
+      "resolution": "720p",
+      "duration": "5"
+    }
+  }'
+```
+
+```python Python
+import requests
+
+response = requests.post(
+    "https://api.muvi.video/v1/jobs/submit",
+    headers={
+        "Authorization": "Bearer YOUR_API_KEY",
+        "Content-Type": "application/json"
+    },
+    json={
+        "model": "alibaba-plus/wan-2.6/video-extend",
+        "input": {
+            "prompt": "A serene lake at sunrise with mist rolling over the water",
+            "video_url": "https://example.com/video.mp4",
+            "resolution": "720p",
+            "duration": "5"
+        }
+    }
+)
+
+data = response.json()
+print(data)
+```
+
+```javascript JavaScript
+const response = await fetch("https://api.muvi.video/v1/jobs/submit", {
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    model: "alibaba-plus/wan-2.6/video-extend",
+    input: {
+      prompt: "A serene lake at sunrise with mist rolling over the water",
+      video_url: "https://example.com/video.mp4",
+      resolution: "720p",
+      duration: "5"
+    }
+  })
+});
+
+const data = await response.json();
+console.log(data);
+```
+
+</CodeGroup>

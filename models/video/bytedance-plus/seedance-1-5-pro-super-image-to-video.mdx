@@ -1,0 +1,164 @@
+---
+title: "Seedance 1.5 Pro Super — Image to Video"
+api: "POST /v1/jobs/submit"
+description: "Generate premium-quality videos with audio from a still image using ByteDance+ Seedance 1.5 Pro Super"
+---
+
+Animate a still image into a high-quality video with optional generated audio using ByteDance+ Seedance 1.5 Pro Super. Supports multiple resolutions up to 1080p, flexible durations, six aspect ratios, and an optional fixed-camera mode.
+
+| Property | Value |
+|----------|-------|
+| **Provider** | ByteDance+ |
+| **Model** | Seedance 1.5 Pro Super |
+| **Capability** | Image to Video |
+| **Base Cost** | 15,000 micro-cents/second ($0.015/sec) |
+| **Processing Time** | ~300 seconds |
+
+## Request Body
+
+<ParamField body="model" type="string" required placeholder="bytedance-plus/seedance-1.5-pro-super/image-to-video">
+  Model slug. Use `bytedance-plus/seedance-1.5-pro-super/image-to-video`.
+</ParamField>
+
+<ParamField body="input" type="object" required>
+  Input parameters for image-to-video generation.
+  <Expandable title="properties" defaultOpen>
+    <ParamField body="prompt" type="string" required>
+      Text description of the motion and scene to generate (max 5000 characters).
+    </ParamField>
+    <ParamField body="image_url" type="string" required>
+      URL of the start frame image to animate.
+    </ParamField>
+    <ParamField body="resolution" type="string">
+      Output resolution. Default: `720p`. Options: `480p`, `720p`, `1080p`.
+    </ParamField>
+    <ParamField body="duration" type="string">
+      Video duration in seconds. Default: `5`. Options: `4`, `5`, `6`, `7`, `8`, `9`, `10`, `11`, `12`.
+    </ParamField>
+    <ParamField body="aspect_ratio" type="string">
+      Video aspect ratio. Default: `16:9`. Options: `21:9`, `16:9`, `4:3`, `1:1`, `3:4`, `9:16`.
+    </ParamField>
+    <ParamField body="generate_audio" type="boolean">
+      Generate synchronized audio for the video. Default: `true`.
+    </ParamField>
+    <ParamField body="camera_fixed" type="boolean">
+      Lock the camera position for a static shot. Default: `false`.
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="webhookUrl" type="string">
+  HTTPS URL to receive a webhook notification when the job completes or fails.
+</ParamField>
+
+## Pricing
+
+**Base cost:** 15,000 micro-cents per second ($0.015/sec)
+
+```
+finalCost = baseCost × resolution × generate_audio × duration
+```
+
+| Factor | Option | Multiplier |
+|--------|--------|-----------|
+| **Resolution** | `480p` | 1x |
+| | `720p` | 1.8667x |
+| | `1080p` | 3.7333x |
+| **Generate Audio** | `false` | 1x |
+| | `true` | 2x |
+| **Duration** | `4`–`12` | matches value (e.g. `5` → 5x) |
+
+<Tip>
+**Default cost:** 720p, audio on, 5 seconds = 15,000 × 1.8667 × 2 × 5 = **280,005 micro-cents ($0.28)**
+</Tip>
+
+## Response
+
+<ResponseField name="jobId" type="string">
+  Unique identifier for the submitted job.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Initial job status. Always `"pending"` on successful submission.
+</ResponseField>
+
+<ResponseField name="estimatedCompletionTime" type="string">
+  ISO 8601 timestamp of the estimated completion time.
+</ResponseField>
+
+<ResponseField name="costMicroCents" type="number">
+  The cost of the job in micro-cents.
+</ResponseField>
+
+## Code Examples
+
+<CodeGroup>
+
+```bash cURL
+curl -X POST https://api.muvi.video/v1/jobs/submit \
+  -H "Authorization: Bearer $PIXELBYTE_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "bytedance-plus/seedance-1.5-pro-super/image-to-video",
+    "input": {
+      "prompt": "A cinematic dolly shot of the subject walking forward",
+      "image_url": "https://example.com/image.jpg",
+      "resolution": "720p",
+      "duration": "5",
+      "aspect_ratio": "16:9",
+      "generate_audio": true
+    }
+  }'
+```
+
+```python Python
+import requests
+
+response = requests.post(
+    "https://api.muvi.video/v1/jobs/submit",
+    headers={
+        "Authorization": "Bearer YOUR_API_KEY",
+        "Content-Type": "application/json"
+    },
+    json={
+        "model": "bytedance-plus/seedance-1.5-pro-super/image-to-video",
+        "input": {
+            "prompt": "A cinematic dolly shot of the subject walking forward",
+            "image_url": "https://example.com/image.jpg",
+            "resolution": "720p",
+            "duration": "5",
+            "aspect_ratio": "16:9",
+            "generate_audio": True
+        }
+    }
+)
+
+data = response.json()
+print(data)
+```
+
+```javascript JavaScript
+const response = await fetch("https://api.muvi.video/v1/jobs/submit", {
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    model: "bytedance-plus/seedance-1.5-pro-super/image-to-video",
+    input: {
+      prompt: "A cinematic dolly shot of the subject walking forward",
+      image_url: "https://example.com/image.jpg",
+      resolution: "720p",
+      duration: "5",
+      aspect_ratio: "16:9",
+      generate_audio: true
+    }
+  })
+});
+
+const data = await response.json();
+console.log(data);
+```
+
+</CodeGroup>

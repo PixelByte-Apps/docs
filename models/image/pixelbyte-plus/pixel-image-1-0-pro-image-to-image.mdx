@@ -1,0 +1,150 @@
+---
+title: "Pixel Image 1.0 Pro — Image to Image / Edit"
+api: "POST /v1/jobs/submit"
+description: "Edit and transform images at professional quality using PixelByte+'s Pixel Image 1.0 Pro model"
+---
+
+Edit and transform existing images at professional quality with PixelByte+'s Pixel Image 1.0 Pro model. Provide one or more reference images along with an edit instruction to guide the transformation.
+
+| Property | Value |
+|----------|-------|
+| **Provider** | PixelByte+ |
+| **Model** | Pixel Image 1.0 Pro |
+| **Capability** | Image to Image / Edit |
+| **Category** | Image to Image |
+| **Base Cost** | 45,000 micro-cents/image ($0.045) |
+| **Processing Time** | ~30 seconds |
+
+## Request Body
+
+<ParamField body="model" type="string" required placeholder="pixelbyte-plus/pixel-image-1.0-pro/image-to-image">
+  Model slug. Use `pixelbyte-plus/pixel-image-1.0-pro/image-to-image` for image editing.
+</ParamField>
+
+<ParamField body="input" type="object" required>
+  Input parameters for image editing.
+  <Expandable title="properties" defaultOpen>
+    <ParamField body="prompt" type="string" required>
+      Edit instruction describing the desired transformation. Max length: 5,000 characters.
+    </ParamField>
+    <ParamField body="image_urls" type="array" required>
+      List of input image URLs to edit. Provide between 1 and 4 URLs.
+    </ParamField>
+    <ParamField body="size" type="string">
+      Output resolution tier. Default: `2K`. Options: `1K`, `2K`.
+    </ParamField>
+    <ParamField body="num_images" type="string">
+      Number of images to generate per request. Default: `1`. Options: `1`, `2`, `3`, `4`. Affects pricing.
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="webhookUrl" type="string">
+  HTTPS URL to receive a webhook notification when the job completes or fails.
+</ParamField>
+
+## Pricing
+
+**Base cost:** 45,000 micro-cents per image ($0.045)
+
+```
+finalCost = baseCost × num_images
+```
+
+| Factor | Option | Multiplier |
+|--------|--------|-----------|
+| **Number of Images** | `1` | 1x |
+| | `2` | 2x |
+| | `3` | 3x |
+| | `4` | 4x |
+
+<Tip>
+**Default cost:** 1 image = 45,000 × 1 = **45,000 micro-cents ($0.045)**
+
+**4-image cost:** 45,000 × 4 = **180,000 micro-cents ($0.180)**
+</Tip>
+
+## Response
+
+<ResponseField name="jobId" type="string">
+  Unique identifier for the submitted job.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Initial job status. Always `"pending"` on successful submission.
+</ResponseField>
+
+<ResponseField name="estimatedCompletionTime" type="string">
+  ISO 8601 timestamp of the estimated completion time.
+</ResponseField>
+
+<ResponseField name="costMicroCents" type="number">
+  The cost of the job in micro-cents.
+</ResponseField>
+
+## Code Examples
+
+<CodeGroup>
+
+```bash cURL
+curl -X POST https://api.muvi.video/v1/jobs/submit \
+  -H "Authorization: Bearer $PIXELBYTE_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "pixelbyte-plus/pixel-image-1.0-pro/image-to-image",
+    "input": {
+      "prompt": "Replace the background with a tropical beach at sunset, photorealistic",
+      "image_urls": ["https://example.com/image.jpg"],
+      "size": "2K",
+      "num_images": "1"
+    }
+  }'
+```
+
+```python Python
+import requests
+
+response = requests.post(
+    "https://api.muvi.video/v1/jobs/submit",
+    headers={
+        "Authorization": "Bearer YOUR_API_KEY",
+        "Content-Type": "application/json"
+    },
+    json={
+        "model": "pixelbyte-plus/pixel-image-1.0-pro/image-to-image",
+        "input": {
+            "prompt": "Replace the background with a tropical beach at sunset, photorealistic",
+            "image_urls": ["https://example.com/image.jpg"],
+            "size": "2K",
+            "num_images": "1"
+        }
+    }
+)
+
+data = response.json()
+print(data)
+```
+
+```javascript JavaScript
+const response = await fetch("https://api.muvi.video/v1/jobs/submit", {
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    model: "pixelbyte-plus/pixel-image-1.0-pro/image-to-image",
+    input: {
+      prompt: "Replace the background with a tropical beach at sunset, photorealistic",
+      image_urls: ["https://example.com/image.jpg"],
+      size: "2K",
+      num_images: "1"
+    }
+  })
+});
+
+const data = await response.json();
+console.log(data);
+```
+
+</CodeGroup>

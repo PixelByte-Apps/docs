@@ -1,0 +1,134 @@
+---
+title: "Nano Banana (TEST) — Text to Image"
+api: "POST /v1/jobs/submit"
+description: "Generate images from text prompts using Google's Nano Banana (TEST) model via PixelByte API"
+---
+
+Generate images from text descriptions with Google's Nano Banana (TEST) model. A lightweight development variant that supports a wide range of aspect ratios and multiple generations per request.
+
+| Property | Value |
+|----------|-------|
+| **Provider** | Google |
+| **Model** | Nano Banana (TEST) |
+| **Capability** | Text to Image |
+| **Base Cost** | 40,000 micro-cents/request ($0.04/request) |
+| **Processing Time** | ~30 seconds |
+
+## Request Body
+
+<ParamField body="model" type="string" required placeholder="google/nano-banana-dev/text-to-image">
+  Model slug. Use `google/nano-banana-dev/text-to-image` for text-to-image generation.
+</ParamField>
+
+<ParamField body="input" type="object" required>
+  Input parameters for text-to-image generation.
+  <Expandable title="properties" defaultOpen>
+    <ParamField body="prompt" type="string" required>
+      Text description of the image to generate.
+    </ParamField>
+    <ParamField body="aspect_ratio" type="string">
+      Image aspect ratio. Default: `9:16`. Options: `9:16`, `16:9`, `1:1`, `2:3`, `3:2`, `21:9`, `3:4`, `4:3`, `4:5`, `5:4`.
+    </ParamField>
+    <ParamField body="numberOfGenerations" type="integer">
+      Number of generations to produce. Default: `1`. Options: `1`, `2`, `3`, `4`.
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="webhookUrl" type="string">
+  HTTPS URL to receive a webhook notification when the job completes or fails.
+</ParamField>
+
+## Pricing
+
+**Base cost:** 40,000 micro-cents per request ($0.04/request)
+
+```
+finalCost = baseCost
+```
+
+<Tip>
+**Default cost:** 1 request = **40,000 micro-cents ($0.04)**
+</Tip>
+
+## Response
+
+<ResponseField name="jobId" type="string">
+  Unique identifier for the submitted job.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Initial job status. Always `"pending"` on successful submission.
+</ResponseField>
+
+<ResponseField name="estimatedCompletionTime" type="string">
+  ISO 8601 timestamp of the estimated completion time.
+</ResponseField>
+
+<ResponseField name="costMicroCents" type="number">
+  The cost of the job in micro-cents.
+</ResponseField>
+
+## Code Examples
+
+<CodeGroup>
+
+```bash cURL
+curl -X POST https://api.muvi.video/v1/jobs/submit \
+  -H "Authorization: Bearer $PIXELBYTE_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "google/nano-banana-dev/text-to-image",
+    "input": {
+      "prompt": "A serene mountain lake at sunrise with mist over the water",
+      "aspect_ratio": "16:9",
+      "numberOfGenerations": 1
+    }
+  }'
+```
+
+```python Python
+import requests
+
+response = requests.post(
+    "https://api.muvi.video/v1/jobs/submit",
+    headers={
+        "Authorization": "Bearer YOUR_API_KEY",
+        "Content-Type": "application/json"
+    },
+    json={
+        "model": "google/nano-banana-dev/text-to-image",
+        "input": {
+            "prompt": "A serene mountain lake at sunrise with mist over the water",
+            "aspect_ratio": "16:9",
+            "numberOfGenerations": 1
+        }
+    }
+)
+
+data = response.json()
+print(data)
+```
+
+```javascript JavaScript
+const response = await fetch("https://api.muvi.video/v1/jobs/submit", {
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    model: "google/nano-banana-dev/text-to-image",
+    input: {
+      prompt: "A serene mountain lake at sunrise with mist over the water",
+      aspect_ratio: "16:9",
+      numberOfGenerations: 1
+    }
+  })
+});
+
+const data = await response.json();
+console.log(data);
+```
+
+</CodeGroup>

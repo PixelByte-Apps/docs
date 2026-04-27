@@ -1,0 +1,124 @@
+---
+title: "Hailuo 2.3 Pro — Image to Video"
+api: "POST /v1/jobs/submit"
+description: "Generate videos from images using MiniMax Plus Hailuo 2.3 Pro model"
+---
+
+Animate a still image with MiniMax Plus Hailuo 2.3 Pro — a 1080p image-to-video model that delivers ultra-clear output with cinematic motion at a flat per-request cost.
+
+| Property | Value |
+|----------|-------|
+| **Provider** | MiniMax Plus |
+| **Model** | Hailuo 2.3 Pro |
+| **Capability** | Image to Video |
+| **Base Cost** | 50,000 micro-cents/request ($0.05/request) |
+| **Processing Time** | ~180 seconds |
+
+## Request Body
+
+<ParamField body="model" type="string" required placeholder="minimax-plus/hailuo-2.3-pro/image-to-video">
+  Model slug. Use `minimax-plus/hailuo-2.3-pro/image-to-video` for image-to-video generation.
+</ParamField>
+
+<ParamField body="input" type="object" required>
+  Input parameters for image-to-video generation.
+  <Expandable title="properties" defaultOpen>
+    <ParamField body="image_url" type="string" required>
+      URL of the input image to animate.
+    </ParamField>
+    <ParamField body="prompt" type="string">
+      Text description guiding the animation (max 2500 characters).
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="webhookUrl" type="string">
+  HTTPS URL to receive a webhook notification when the job completes or fails.
+</ParamField>
+
+## Pricing
+
+**Base cost:** 50,000 micro-cents per request ($0.05/request)
+
+<Tip>
+**Default cost:** **50,000 micro-cents ($0.05)** per request — flat pricing regardless of duration.
+</Tip>
+
+## Response
+
+<ResponseField name="jobId" type="string">
+  Unique identifier for the submitted job.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Initial job status. Always `"pending"` on successful submission.
+</ResponseField>
+
+<ResponseField name="estimatedCompletionTime" type="string">
+  ISO 8601 timestamp of the estimated completion time.
+</ResponseField>
+
+<ResponseField name="costMicroCents" type="number">
+  The cost of the job in micro-cents.
+</ResponseField>
+
+## Code Examples
+
+<CodeGroup>
+
+```bash cURL
+curl -X POST https://api.muvi.video/v1/jobs/submit \
+  -H "Authorization: Bearer $PIXELBYTE_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "minimax-plus/hailuo-2.3-pro/image-to-video",
+    "input": {
+      "image_url": "https://example.com/image.jpg",
+      "prompt": "Slow dolly-in with cinematic depth of field"
+    }
+  }'
+```
+
+```python Python
+import requests
+
+response = requests.post(
+    "https://api.muvi.video/v1/jobs/submit",
+    headers={
+        "Authorization": "Bearer YOUR_API_KEY",
+        "Content-Type": "application/json"
+    },
+    json={
+        "model": "minimax-plus/hailuo-2.3-pro/image-to-video",
+        "input": {
+            "image_url": "https://example.com/image.jpg",
+            "prompt": "Slow dolly-in with cinematic depth of field"
+        }
+    }
+)
+
+data = response.json()
+print(data)
+```
+
+```javascript JavaScript
+const response = await fetch("https://api.muvi.video/v1/jobs/submit", {
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    model: "minimax-plus/hailuo-2.3-pro/image-to-video",
+    input: {
+      image_url: "https://example.com/image.jpg",
+      prompt: "Slow dolly-in with cinematic depth of field"
+    }
+  })
+});
+
+const data = await response.json();
+console.log(data);
+```
+
+</CodeGroup>

@@ -1,0 +1,149 @@
+---
+title: "Pixel Image 1.0 — Text to Image"
+api: "POST /v1/jobs/submit"
+description: "Generate images from text prompts using PixelByte+'s Pixel Image 1.0 model"
+---
+
+Generate images from text descriptions with PixelByte+'s Pixel Image 1.0 model. Supports multi-image batches, dual resolution tiers, and an optional thinking mode for enhanced quality.
+
+| Property | Value |
+|----------|-------|
+| **Provider** | PixelByte+ |
+| **Model** | Pixel Image 1.0 |
+| **Capability** | Text to Image |
+| **Base Cost** | 30,000 micro-cents/image ($0.030) |
+| **Processing Time** | ~30 seconds |
+
+## Request Body
+
+<ParamField body="model" type="string" required placeholder="pixelbyte-plus/pixel-image-1.0/text-to-image">
+  Model slug. Use `pixelbyte-plus/pixel-image-1.0/text-to-image` for text-to-image generation.
+</ParamField>
+
+<ParamField body="input" type="object" required>
+  Input parameters for text-to-image generation.
+  <Expandable title="properties" defaultOpen>
+    <ParamField body="prompt" type="string" required>
+      Text description of the image to generate. Max length: 5,000 characters.
+    </ParamField>
+    <ParamField body="size" type="string">
+      Output resolution tier. Default: `2K`. Options: `1K`, `2K`.
+    </ParamField>
+    <ParamField body="num_images" type="string">
+      Number of images to generate per request. Default: `1`. Options: `1`, `2`, `3`, `4`. Affects pricing.
+    </ParamField>
+    <ParamField body="thinking_mode" type="boolean">
+      Enable enhanced inference for higher-quality results. Default: `true`.
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="webhookUrl" type="string">
+  HTTPS URL to receive a webhook notification when the job completes or fails.
+</ParamField>
+
+## Pricing
+
+**Base cost:** 30,000 micro-cents per image ($0.030)
+
+```
+finalCost = baseCost × num_images
+```
+
+| Factor | Option | Multiplier |
+|--------|--------|-----------|
+| **Number of Images** | `1` | 1x |
+| | `2` | 2x |
+| | `3` | 3x |
+| | `4` | 4x |
+
+<Tip>
+**Default cost:** 1 image = 30,000 × 1 = **30,000 micro-cents ($0.030)**
+
+**4-image cost:** 30,000 × 4 = **120,000 micro-cents ($0.120)**
+</Tip>
+
+## Response
+
+<ResponseField name="jobId" type="string">
+  Unique identifier for the submitted job.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Initial job status. Always `"pending"` on successful submission.
+</ResponseField>
+
+<ResponseField name="estimatedCompletionTime" type="string">
+  ISO 8601 timestamp of the estimated completion time.
+</ResponseField>
+
+<ResponseField name="costMicroCents" type="number">
+  The cost of the job in micro-cents.
+</ResponseField>
+
+## Code Examples
+
+<CodeGroup>
+
+```bash cURL
+curl -X POST https://api.muvi.video/v1/jobs/submit \
+  -H "Authorization: Bearer $PIXELBYTE_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "pixelbyte-plus/pixel-image-1.0/text-to-image",
+    "input": {
+      "prompt": "A futuristic cityscape at sunset with flying cars",
+      "size": "2K",
+      "num_images": "1",
+      "thinking_mode": true
+    }
+  }'
+```
+
+```python Python
+import requests
+
+response = requests.post(
+    "https://api.muvi.video/v1/jobs/submit",
+    headers={
+        "Authorization": "Bearer YOUR_API_KEY",
+        "Content-Type": "application/json"
+    },
+    json={
+        "model": "pixelbyte-plus/pixel-image-1.0/text-to-image",
+        "input": {
+            "prompt": "A futuristic cityscape at sunset with flying cars",
+            "size": "2K",
+            "num_images": "1",
+            "thinking_mode": True
+        }
+    }
+)
+
+data = response.json()
+print(data)
+```
+
+```javascript JavaScript
+const response = await fetch("https://api.muvi.video/v1/jobs/submit", {
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    model: "pixelbyte-plus/pixel-image-1.0/text-to-image",
+    input: {
+      prompt: "A futuristic cityscape at sunset with flying cars",
+      size: "2K",
+      num_images: "1",
+      thinking_mode: true
+    }
+  })
+});
+
+const data = await response.json();
+console.log(data);
+```
+
+</CodeGroup>
