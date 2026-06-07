@@ -3,14 +3,14 @@
   "theme": "mint",
   "name": "PixelByte API",
   "colors": {
-    "primary": "#18FB6F",
-    "light": "#18FB6F",
-    "dark": "#10B981"
+    "primary": "#C33C04",
+    "light": "#FF6B35",
+    "dark": "#C33C04"
   },
   "favicon": "/favicon.svg",
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/light.png",
+    "dark": "/logo/dark.png"
   },
   "navbar": {
     "links": [
