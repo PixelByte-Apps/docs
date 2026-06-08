@@ -9,8 +9,8 @@
   },
   "favicon": "/favicon.svg",
   "logo": {
-    "light": "/logo/light.png",
-    "dark": "/logo/dark.png"
+    "light": "https://cdn.jsdelivr.net/gh/PixelByte-Apps/docs@main/logo/light.png",
+    "dark": "https://cdn.jsdelivr.net/gh/PixelByte-Apps/docs@main/logo/dark.png"
   },
   "navbar": {
     "links": [
@@ -643,11 +643,6 @@
           "anchor": "API Reference",
           "href": "/api-reference/jobs/submit",
           "icon": "code"
-        },
-        {
-          "anchor": "Status",
-          "href": "https://status.muvi.video",
-          "icon": "signal"
         }
       ]
     }
