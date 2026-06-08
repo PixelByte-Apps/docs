@@ -9,8 +9,8 @@
   },
   "favicon": "/favicon.svg",
   "logo": {
-    "light": "https://cdn.jsdelivr.net/gh/PixelByte-Apps/docs@main/logo/light.png",
-    "dark": "https://cdn.jsdelivr.net/gh/PixelByte-Apps/docs@main/logo/dark.png"
+    "light": "https://developer.muvi.video/muvi-logo.png",
+    "dark": "https://developer.muvi.video/muvi-logo.png"
   },
   "navbar": {
     "links": [
