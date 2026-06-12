@@ -61,10 +61,6 @@
     'gen-4-image-edit-image': 'runway/gen-4-image/edit-image',
     'gen-4-turbo-image-edit-image': 'runway/gen-4-turbo-image/edit-image',
 
-    // --- Veo 3.1 (EachLabs) - legacy keys ---
-    'veo-3-1-eachlabs-image-to-video': 'google/veo-3.1-eachlabs/image-to-video',
-    'veo-3-1-eachlabs-start-end-frame-to-video': 'google/veo-3.1-eachlabs/start-end-frame-to-video',
-
     // --- Alibaba Plus Wan ---
     'wan-2-6-text-to-video': 'alibaba-plus/wan-2.6/text-to-video',
     'wan-2-6-image-to-video': 'alibaba-plus/wan-2.6/image-to-video',
